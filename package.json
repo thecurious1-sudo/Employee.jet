@@ -8,8 +8,19 @@
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
     "mongoose": "^6.4.6",
     "multer": "^1.4.5-lts.1",
-    "passport": "^0.6.0"
-  }
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  },
+  "name": "employee.jet-main",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samarth Vaibhav",
+  "license": "ISC",
+  "description": ""
 }

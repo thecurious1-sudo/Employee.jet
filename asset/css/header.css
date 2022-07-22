@@ -1,0 +1,39 @@
+#layout-header {
+    position: sticky;
+    top: 0px;
+  }
+  
+  #layout-header nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #5a5afa;
+    color: white;
+    padding: 0px 6px;
+    align-items: center;
+    min-height: 2rem;
+    max-height: 2.5rem;
+  }
+  
+  #layout-header nav .mini-logo a {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    margin: 1px 3px;
+    letter-spacing: 1.2px;
+    font-size: 1.2rem;
+  }
+  
+  #layout-header nav .auth-links > ul {
+    display: flex;
+  }
+  
+  #layout-header nav .auth-links > ul li {
+    margin: 0px 10px;
+    list-style: none;
+  }
+  
+  #layout-header nav .auth-links > ul li a {
+    text-decoration: none;
+    color: white;
+  }
+  

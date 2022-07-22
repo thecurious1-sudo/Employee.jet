@@ -1,9 +1,13 @@
 const router = require('express').Router();
-const User = require('../models/User');
+const passport = require('passport');
 const userController = require('../controllers/userController');
 
-router.get('/login',userController.renderLogin);
-router.post('/login', userController.login);
+router.post('/login', passport.authenticate( `local` , {
+        failureRedirect: `/`
+    }) , userController.login);
+
+router.get('/logout' , userController.logout);
+
 
 
 module.exports=router;
