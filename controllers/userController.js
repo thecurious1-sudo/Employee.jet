@@ -10,7 +10,7 @@ module.exports.login = async (req, res) => {
     if (user.password !== password) {
         return res.status(400).send("Incorrect password");
     }
-    return res.redirect('/');
+    return res.redirect('back');
 }
 
 module.exports.renderLogin = async (req, res) => {
