@@ -93,8 +93,18 @@ module.exports.users = [
 
 module.exports.todoDataPvt = [
     {
-        task: "Brush your teeth!",
-        
-
+        task: "Task 1",
+        endDate: new Date(),
+        deadline: new Date(),
+    },
+    {
+        task: "Task 2",
+        endDate: new Date(),
+        deadline: new Date(),
+    },
+    {
+        task: "Task 3",
+        endDate: new Date(),
+        deadline: new Date(),
     }
 ]

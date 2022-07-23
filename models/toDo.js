@@ -1,15 +1,9 @@
 const mongoose = require('mongoose');
 
 const toDoSchema = new mongoose.Schema({
-    empId: {
+    assignedBy:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
-    },
-    assignedBy:{
-        type: mongoose.Schema.Types.ObjectId.apply,
-        ref: 'User',
-        required: true,
         default: null
     },
     tasks:[{

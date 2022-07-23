@@ -66,7 +66,8 @@ const userSchema = new mongoose.Schema({
     }],
     pvtToDoList :{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'ToDo'
+        ref: 'ToDo',
+        default: null
     }
 } , {
     // Keep the created and updated time
