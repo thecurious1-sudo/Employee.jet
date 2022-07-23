@@ -15,22 +15,40 @@
 }
 
 /* Container CSS */
-.private-todo-container{
+.container{
     height: 100%;
     width: 100%;
-    margin-top: 0;
 }
+
+/* Styling header */
+header{
+    background-color: black;
+    color: white;
+    display: block;
+    position: sticky;
+    top: 0px;
+}
+
+header > h1{
+    text-align: center;
+    /* background-color: red; */
+    /* border: 1px solid black; */
+    padding: 10px;
+    /* position: sticky; */
+}
+
+
+
 
 /* Styling input section */
 form{
-    height: 25%;
+    height: 50%;
     display: grid;
-    width: auto;
     grid-template-areas:  'desc desc desc desc date'
                           'buttons buttons buttons buttons buttons' ;
 }
 form>div{
-    padding: 3px;
+    padding: 10px;
     border: 1px solid rgb(210, 208, 208);
     display: flex;
     flex-direction: column;
@@ -41,20 +59,15 @@ label{
 .decor{
     border: none;
     outline-width: 0;
+    padding: 0.5rem;
     font-size: 1.1rem;
 }
 /* Changing input placeholder color */
-input{
-    height: 54px;
-    margin-bottom: -25px;
-}
 input::placeholder{
     color: rgb(177, 177, 177);
 }
 
-#duedate:hover{
-    cursor: pointer;
-}
+
 
 
 /* Styling buttons container and buttons */
@@ -68,9 +81,9 @@ input::placeholder{
 }
 
 button{
-    padding: 0.3rem;
-    margin: 0.3rem 1rem;
-    width: 20%;
+    padding: 1rem;
+    margin: 1rem;
+    width: 15%;
     font-size: 1.2rem;
     border-radius: 5px;
 }

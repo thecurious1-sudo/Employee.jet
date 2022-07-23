@@ -1,6 +1,6 @@
-const User = require('../models/User');
-const ToDo = require('../models/ToDo');
-const Task = require('../models/Task');
+const User = require('../models/user');
+const ToDo = require('../models/toDo');
+const Task = require('../models/task');
 
 module.exports.home = async (req , res)=>{
     if(!req.user){
@@ -16,6 +16,6 @@ module.exports.home = async (req , res)=>{
     return res.render('home', {
         layout: 'blank_layout',
         title: 'Employee.Jet | Home',
-        tasks: user.pvtToDoList.tasks
+        tasks: (user.pvtToDoList == null)?null:user.pvtToDoList.tasks
     });
 }

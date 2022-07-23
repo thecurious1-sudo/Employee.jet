@@ -1,3 +1,27 @@
-<% for(let i=0; i<tasks.length; i++) { %>
-    <%= tasks[i].task %> <br>
-<% } %>
+<link rel="stylesheet" href="/css/privateToDo.css">
+<div class="private-todo-container">
+    <form action="/users/add-task-to-privateList" method="post">
+        <div id="desc">
+            <label for="description">DESCRIPTION</label>
+            <input class="decor" type="text" name="task" required placeholder="What do you need to do?">
+        </div>
+
+        <div id="date">
+            <label for="date">DEADLINE</label>
+            <input class="decor" type="date" name="deadline" id="dueDate" required>
+        </div>
+
+        <div id="buttons">
+            <button id="add" type="submit">
+                <i class="fas fa-plus"></i>
+                ADD TASK
+            </button>
+            <button id="delete">
+                <a href="/delete_Tasks">
+                    <i class="fas fa-trash-can"></i>
+                    DELETE TASKS
+                </a>
+            </button>
+        </div>
+    </form>
+</div>

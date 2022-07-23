@@ -1,6 +1,6 @@
 const passport = require(`passport`);
 const localStrategy = require(`passport-local`).Strategy;
-const User = require(`../models/User`);
+const User = require(`../models/user`);
 // const Post = require(`../models/posts`);
 
 // Authentication using passport

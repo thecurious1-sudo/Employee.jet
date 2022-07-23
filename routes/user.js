@@ -8,6 +8,8 @@ router.post('/login', passport.authenticate( `local` , {
 
 router.get('/logout' , userController.logout);
 
+router.post(`/add-task-to-privateList` , passport.checkAuthentication , userController.addTask_to_private_toDo);
+
 
 
 module.exports=router;
