@@ -44,10 +44,6 @@ passport.deserializeUser(function(id , done){
     });
 });
 
-
-
-//Check First the user is authenticated
-// Craeting our own middleware for it
 passport.checkAuthentication = function(req , res , next){
     if(req.isAuthenticated())
     {
@@ -62,7 +58,6 @@ passport.setAuthenticatedUser = function(req , res , next){
     if(req.isAuthenticated())
     {
         res.locals.user = req.user;
-        // res.locals.post = req.post
     }
     next();
 }

@@ -30,7 +30,7 @@ app.use(session({
     saveUninitialized: false, //It means that data will not be saved in cookies until signin is there
     resave: false,
     cookie: {
-        maxAge: (1000*60*100)
+        maxAge: (1000*6000*1000)
     },
     // store: new MongoStore({
     //     mongoUrl: 'mongodb://localhost/EmployeeJet',

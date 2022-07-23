@@ -1,6 +1,15 @@
 .change-color-to-grey{
     background-color: rgb(90, 80, 80);
 }
+.change-color-to-white{
+    background-color: white;
+}
+
 .display-hidden{
-    display: hidden;
+    display: none;
+}
+
+.show-todo-list{
+    z-index: 1;
+    background-color: white;
 }

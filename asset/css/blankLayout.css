@@ -2,3 +2,10 @@
     padding: 0;
     margin: 0;
 }
+
+
+.main-heading{
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+}

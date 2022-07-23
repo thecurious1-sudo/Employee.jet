@@ -1,4 +1,4 @@
-module.exports = [
+module.exports.users = [
     {
         name: "John Doe",
         designation: "CEO",
@@ -19,7 +19,7 @@ module.exports = [
         designation: "Manager",
         empId: "2",
         level: 2,
-        supervisor: "1",
+        supervisor: null,
         address: "Bangalore",
         phnNo: "+91 932193291",
         email: "janedoe@empjet.ac.in",
@@ -34,7 +34,7 @@ module.exports = [
         designation: "Manager",
         empId: "3",
         level: 2,
-        supervisor: "1",
+        supervisor: null,
         address: "Bangalore",
         phnNo: "+91 928383212",
         email: "hughdoe@empjet.ac.in",
@@ -49,7 +49,7 @@ module.exports = [
         designation: "Employee",
         empId: "4",
         level: 3,
-        supervisor: "2",
+        supervisor: null,
         address: "Bangalore",
         phnNo: "+91 928383212",
         email: "jackdoe@empjet.ac.in",
@@ -64,7 +64,7 @@ module.exports = [
         designation: "Employee",
         empId: "5",
         level: 3,
-        supervisor: "3",
+        supervisor: null,
         address: "Bangalore",
         phnNo: "+91 928383212",
         email: "jilldoe@empjet.ac.in",
@@ -89,6 +89,12 @@ module.exports = [
         avatar: "./uploads/users/avatars/avatar-1.jpeg",
         projects: []
     },
-    
+]
 
+module.exports.todoDataPvt = [
+    {
+        task: "Brush your teeth!",
+        
+
+    }
 ]

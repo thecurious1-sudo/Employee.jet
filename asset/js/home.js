@@ -1,11 +1,23 @@
 let private_todo_head = $(`.private-todo-button`);
-$(private_todo_head).on(`click` , ()=>{
-    console.log("changing color");
-    $(private_todo_head).toggleClass('display-hidden');
+let project_todo_head = $(`.project-todo-button`);
+let private = false;
+$(private_todo_head).on(`click`, () => {
+    if (!private) {
+        $(private_todo_head).toggleClass('change-color-to-grey');
+        $('.private-todo-content').toggleClass('show-todo-list');
+        $(project_todo_head).toggleClass('change-color-to-grey');
+        $('.project-todo-content').toggleClass('show-todo-list');
+        private = true;
+    }
 });
 
-let project_todo_head = $(`.project-todo-button`);
-$(project_todo_head).on(`click` , ()=>{
-    console.log("changing color");
-    $(project_todo_head).toggleClass('display-hidden');
+$(project_todo_head).on(`click`, () => {
+    if (private) {
+        
+        $(private_todo_head).toggleClass('change-color-to-grey');
+        $('.private-todo-content').toggleClass('show-todo-list');
+        $(project_todo_head).toggleClass('change-color-to-grey');
+        $('.project-todo-content').toggleClass('show-todo-list');
+        private = false;
+    }
 });

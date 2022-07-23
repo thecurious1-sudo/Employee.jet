@@ -1,7 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+
 body {
     background-color: #fbfbfb;
     }
@@ -28,6 +25,11 @@ body {
     width: 100%;
     }
     }
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
     .sidebar .active {
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
@@ -46,12 +48,17 @@ body {
         padding: 0;
     }
 
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+
     .container{
         height: 100%;
         width: 84.2%;
         background-color: wheat;
         position: absolute;
-        top: 67px;
+        top: 70px;
         overflow: hidden;
         display: flex;
         padding: 0px;
@@ -68,30 +75,45 @@ body {
     }
 
     .todo-list-container{
-        border-right: 1px solid rgb(213, 211, 211);
+        /* border-right: 1px solid black; */
         width: 75%;
     }
     .todo-list-navbar{
         display: flex;
     }
-    .todo-list-navbar > h3{
-        border-bottom: 2px solid black;
-        border-left: 1px solid black;
-        border-right: 1px solid black;
+    .private-todo-button{
+        border-bottom: 1px solid black;
+        border-left:1px solid black ;
+        border-top: 1px solid black;
         width: 100%;
         padding: 10px;
         text-align: center;
-        background-color: white;
+        margin: 0;
+    }
+    .project-todo-button{
+        border-bottom: 1px solid black;
+        border-right:1px solid black ;
+        border-top: 1px solid black;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        margin: 0;
     }
 
     .messages-container{
-        border-left: 1px solid rgb(221, 218, 218);
+        border-left: 1px solid black;
+        padding: 5px;
     }
 
     .private-todo-content{
         position: absolute;
+        width: 75%;
+        height: 100%;
     }
+
     .project-todo-content
     {
+        width: 75%;
+        height: 100%;
         position: absolute;
     }

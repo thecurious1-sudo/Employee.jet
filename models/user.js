@@ -63,7 +63,11 @@ const userSchema = new mongoose.Schema({
     projects: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: `Project`
-    }]
+    }],
+    pvtToDoList :{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'ToDo'
+    }
 } , {
     // Keep the created and updated time
     timestamps: true
