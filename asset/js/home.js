@@ -22,10 +22,10 @@ $(project_todo_head).on(`click`, () => {
     }
 });
 
-let list_group_items = document.getElementsByClassName(`list-group-item`);
-for(let item of list_group_items){
-    $(item).on(`click` , ()=>{
-        $(list_group_items).removeClass(`active`);
-        $(item).toggleClass(`active`);
-    })
-}
+// let list_group_items = document.getElementsByClassName(`list-group-item`);
+// for(let item of list_group_items){
+//     $(item).on(`click` , ()=>{
+//         $(list_group_items).removeClass(`active`);
+//         $(item).toggleClass(`active`);
+//     })
+// }

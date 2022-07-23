@@ -96,3 +96,17 @@ button{
     cursor: pointer;
 }
 
+.showTasksContainer
+{
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.form-check-input{
+    margin-left: 10px;
+}
+
+hr{
+    margin:0.3rem 0;
+}
+
