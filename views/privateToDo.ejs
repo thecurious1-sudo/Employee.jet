@@ -1,4 +1,10 @@
 <link rel="stylesheet" href="/css/privateToDo.css">
+<% if(tasks){ %>
+<% for(let i = 0; i < tasks.length; i++) { %>
+<%= tasks[i].task %>
+<br>
+<% } %>
+<% } %>
 <div class="private-todo-container">
     <form action="/users/add-task-to-privateList" method="post">
         <div id="desc">
