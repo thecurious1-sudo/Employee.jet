@@ -10,6 +10,7 @@ module.exports.home = async (req , res)=>{
         });
     }
 
+    
     //populate the user object with the toDoList and tasks
     const user = await User.findById(req.user._id).populate({path: 'pvtToDoList' , populate: {path: 'tasks',model: 'Task'}});
     return res.render('home', {

@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const User = require("../models/user");
 const Task = require("../models/task");
 const ToDo = require(`../models/toDo`);
+const moment = require('moment');
 
-module.exports.login = async (req, res) =>
-{
+module.exports.login = async (req, res) => {
     const { empId, password } = req.body;
     const user = await User.findOne({ empId: empId });
     if (!user) {
@@ -34,8 +34,7 @@ module.exports.addTask_to_private_toDo = async (req, res) => {
     try {
         let user_id = req.user._id;
         const user = await User.findById(user_id);
-        if (user)
-        {
+        if (user) {
             let task = await Task.create({
                 task: req.body.task,
                 deadline: req.body.deadline
@@ -47,7 +46,7 @@ module.exports.addTask_to_private_toDo = async (req, res) => {
                 toDo.save();
                 res.redirect('back');
             } else {
-                let toDo = await ToDo.create({tasks: [task]});
+                let toDo = await ToDo.create({ tasks: [task] });
                 user.pvtToDoList = toDo;
                 user.save();
                 res.redirect('back');
