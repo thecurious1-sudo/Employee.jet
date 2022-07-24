@@ -16,9 +16,13 @@
 
 /* Container CSS */
 .private-todo-container{
-    height: 100%;
-    width: 100%;
-    margin-top: 0;
+    background-color: white;
+    width: 63.16%;
+    position: fixed;
+    bottom: 0;
+    height: 20%;
+    border-top: 2px solid black;
+    border-bottom: 7px solid black;
 }
 
 /* Styling input section */
@@ -46,7 +50,7 @@ label{
 /* Changing input placeholder color */
 input{
     height: 54px;
-    margin-bottom: -25px;
+    margin-bottom: -15px;
 }
 input::placeholder{
     color: rgb(177, 177, 177);
@@ -96,10 +100,16 @@ button{
     cursor: pointer;
 }
 
+.showTasksContainer::-webkit-scrollbar {
+    display: none;
+  }
 .showTasksContainer
 {
     margin-left: 25px;
     margin-top: 10px;
+    height: 63%;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .form-check-input{

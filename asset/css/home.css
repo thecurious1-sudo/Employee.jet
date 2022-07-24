@@ -103,6 +103,7 @@ body {
     .messages-container{
         border-left: 1px solid black;
         padding: 5px;
+        width: auto;
     }
 
     .private-todo-content{

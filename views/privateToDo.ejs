@@ -1,37 +1,36 @@
 <link rel="stylesheet" href="/css/privateToDo.css">
 <div class="showTasksContainer">
-    <% if(tasks){ %>
-        <% for(let i = 0; i < tasks.length; i++) { %>
-            <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
-                <li
-                  class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
-                  <div class="form-check">
-                    <input class="form-check-input me-0" type="checkbox" value="" id="flexCheckChecked1"
-                      aria-label="..." checked />
-                  </div>
-                </li>
-                <li
-                  class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
-                  <p class="lead fw-normal mb-0"><%= tasks[i].task %></p>
-                </li>
-                <li class="list-group-item ps-3 pe-10 py-1.5 rounded-0 border-0 bg-transparent">
-                  <div class="d-flex flex-row justify-content-end mb-1">
-                    <a href="#!" class="text-info" data-mdb-toggle="tooltip" title="Edit todo"><i
-                        class="fas fa-pencil-alt me-3"></i></a>
-                    <a href="#!" class="text-danger" data-mdb-toggle="tooltip" title="Delete todo"><i
-                        class="fas fa-trash-alt"></i></a>
-                  </div>
-                  <div class="text-end text-muted">
-                    <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="Created date">
-                      <p class="small mb-0"><i class="fas fa-info-circle me-2"></i>28th Jun 2020</p>
-                    </a>
-                  </div>
-                </li>
-              </ul>
-              <hr>
+  <% if(tasks){ %>
+    <% for(let i=0; i < tasks.length; i++) { %>
+      <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
+        <li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
+          <div class="form-check">
+            <input class="form-check-input me-0" type="checkbox" value="" id="flexCheckChecked1" aria-label="..." />
+          </div>
+        </li>
+        <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
+          <p class="lead fw-normal mb-0">
+            <%= tasks[i].task %>
+          </p>
+        </li>
+        <li class="list-group-item ps-3 pe-10 py-1.5 rounded-0 border-0 bg-transparent">
+          <div class="d-flex flex-row justify-content-end mb-1">
+            <a href="#!" class="text-info" data-mdb-toggle="tooltip" title="Edit todo"><i
+                class="fas fa-pencil-alt me-3"></i></a>
+            <a href="#!" class="text-danger" data-mdb-toggle="tooltip" title="Delete todo"><i
+                class="fas fa-trash-alt"></i></a>
+          </div>
+          <div class="text-end text-muted">
+            <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="Created date">
+              <p class="small mb-0"><i class="fas fa-info-circle me-2"></i>28th Jun 2020</p>
+            </a>
+          </div>
+        </li>
+      </ul>
+      <hr>
+      <% } %>
         <% } %>
-        <% } %>
-<!-- 
+          <!-- 
                       <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
                         <li
                           class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
@@ -122,30 +121,30 @@
                       </ul> -->
 
 </div>
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores ducimus quae suscipit eaque aliquid cupiditate, nobis dolorum aperiam explicabo quaerat ad vero, accusamus nam consequatur iure omnis vel repellendus ullam?</p>
+
 <div class="private-todo-container">
-    <form action="/users/add-task-to-privateList" method="post">
-        <div id="desc">
-            <label for="description">DESCRIPTION</label>
-            <input class="decor" type="text" name="task" required placeholder="What do you need to do?">
-        </div>
+  <form action="/users/add-task-to-privateList" method="post">
+    <div id="desc">
+      <label for="description">DESCRIPTION</label>
+      <input class="decor" type="text" name="task" required placeholder="What do you need to do?">
+    </div>
 
-        <div id="date">
-            <label for="date">DEADLINE</label>
-            <input class="decor" type="date" name="deadline" id="dueDate" required>
-        </div>
+    <div id="date">
+      <label for="date">DEADLINE</label>
+      <input class="decor" type="date" name="deadline" id="dueDate" required>
+    </div>
 
-        <div id="buttons">
-            <button id="add" type="submit">
-                <i class="fas fa-plus"></i>
-                ADD TASK
-            </button>
-            <button id="delete">
-                <a href="/delete_Tasks">
-                    <i class="fas fa-trash-can"></i>
-                    DELETE TASKS
-                </a>
-            </button>
-        </div>
-    </form>
+    <div id="buttons">
+      <button id="add" type="submit">
+        <i class="fas fa-plus"></i>
+          ADD TASK
+      </button>
+      <button id="delete">
+        <a href="/delete_Tasks">
+          <i class="fas fa-trash-can"></i>
+            DELETE TASKS
+        </a>
+      </button>
+    </div>
+  </form>
 </div>
