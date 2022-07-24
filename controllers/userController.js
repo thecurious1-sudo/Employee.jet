@@ -56,3 +56,20 @@ module.exports.addTask_to_private_toDo = async (req, res) => {
         console.log(error);
     }
 }
+
+// Updating private todo list
+module.exports.updatePrivateList = async (req, res) => {
+    try {
+        let taskId = req.params.id;
+        let uId = req.user._id;
+        let task = await Task.findByIdAndUpdate(taskId , {
+            task: req.body.task,
+            deadline: req.body.deadline
+        });
+        await task.save();
+        return res.redirect('back');
+    } catch (error) {
+        console.log("Error in updating private todo list task", error);
+        return res.redirect('back');
+    }
+}

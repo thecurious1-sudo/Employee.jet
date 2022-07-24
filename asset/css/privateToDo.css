@@ -26,15 +26,15 @@
 }
 
 /* Styling input section */
-form{
+.new-task-form{
     height: 25%;
     display: grid;
     width: auto;
     grid-template-areas:  'desc desc desc desc date'
                           'buttons buttons buttons buttons buttons' ;
 }
-form>div{
-    padding: 3px;
+.new-task-form>div{
+    padding: 5px;
     border: 1px solid rgb(210, 208, 208);
     display: flex;
     flex-direction: column;
@@ -48,11 +48,11 @@ label{
     font-size: 1.1rem;
 }
 /* Changing input placeholder color */
-input{
+.new-task-form > input{
     height: 54px;
     margin-bottom: -15px;
 }
-input::placeholder{
+.new-task-form > input::placeholder{
     color: rgb(177, 177, 177);
 }
 
@@ -62,7 +62,7 @@ input::placeholder{
 
 
 /* Styling buttons container and buttons */
-#buttons{
+.new-task-form > #buttons{
     /* background-color: aqua; */
     /* height: 15%; */
     display: flex;
@@ -84,18 +84,7 @@ button{
     color: white;
 }
 
-#delete{
-    color: white;
-    background-color: red;
-    border: none;
-}
-
-#delete > a{
-    text-decoration: none;
-    color: white;
-    /* font-weight: bold; */
-}
-#buttons button:hover{
+.new-task-form > #buttons button:hover{
     box-shadow: 0px 1px 5px black;
     cursor: pointer;
 }
@@ -119,4 +108,14 @@ button{
 hr{
     margin:0.3rem 0;
 }
+
+
+/* Edit Task CSS */
+.edit-task-ul{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    background-color: white;
+}
+
 

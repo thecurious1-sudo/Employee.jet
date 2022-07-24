@@ -8,7 +8,11 @@ router.post('/login', passport.authenticate( `local` , {
 
 router.get('/logout' , userController.logout);
 
+// Add task to private todo list
 router.post(`/add-task-to-privateList` , passport.checkAuthentication , userController.addTask_to_private_toDo);
+
+// Update task in private todo list
+router.post('/update-private-todo-list/:id' , passport.checkAuthentication , userController.updatePrivateList);
 
 
 

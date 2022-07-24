@@ -2,31 +2,40 @@
 <div class="showTasksContainer">
   <% if(tasks){ %>
     <% for(let i=0; i < tasks.length; i++) { %>
-      <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
-        <li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
-          <div class="form-check">
-            <input class="form-check-input me-0" type="checkbox" value="" id="flexCheckChecked1" aria-label="..." />
-          </div>
-        </li>
-        <li  class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent" style="width: 65%; overflow-wrap: anywhere;">
-          <p class="lead fw-normal mb-0">
-            <%= tasks[i].task %>
-          </p>
-        </li>
-        <li class="list-group-item ps-3 pe-10 py-1.5 rounded-0 border-0 bg-transparent" style="width: 19%;">
-          <div class="d-flex flex-row justify-content-end mb-1">
-            <a href="/users/edit-private-todo-list-task/<%tasks[i]._id%>"" class="text-info" data-mdb-toggle="tooltip" title="Edit task"><i
-                class="fas fa-pencil-alt me-3"></i></a>
-            <a href="/users/delete-private-todo-list-task" class="text-danger" data-mdb-toggle="tooltip" title="Delete task"><i
-                class="fas fa-trash-alt"></i></a>
-          </div>
-          <div class="text-end text-muted">
-            <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="DEADLINE" style="text-align: left!important;">
-              <p class="small mb-0"><i class="fas fa-info-circle me-2"></i><%=tasks[i].deadline.toString().substring(0,16)%></p>
-            </a>
-          </div>
-        </li>
-      </ul>
+      <form action="/users/update-private-todo-list/<%=tasks[i]._id%>" method="post">
+        <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
+          <li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent hide-on-edit">
+            <div class="form-check">
+              <input class="form-check-input me-0 hide-on-edit" type="checkbox" value="" id="flexCheckChecked1" aria-label="..." />
+            </div>
+          </li>
+          <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
+            style="width: 65%; overflow-wrap: anywhere;">
+            <p class="lead fw-normal mb-0 hide-on-edit">
+              <%= tasks[i].task %>
+            </p>
+            <input type="text" value="<%=tasks[i].task%>" name="task" class="display-hidden show-on-edit lead fw-normal mb-0" style="border: none; outline:none;">
+          </li>
+          <li class="list-group-item ps-3 pe-10 py-1.5 rounded-0 border-0 bg-transparent" style="width: 19%;">
+            <div class="d-flex flex-row justify-content-end mb-1">
+              <a href="#" class="text-info hide-on-edit" data-mdb-toggle="tooltip"
+                title="Edit task"><i class="fas fa-pencil-alt me-3"></i></a>
+              <a href="/users/delete-private-todo-list-task" class="text-danger hide-on-edit" data-mdb-toggle="tooltip"
+                title="Delete task"><i class="fas fa-trash-alt"></i></a>
+              <input type="submit" value="SAVE" class="display-hidden show-on-edit update-task-submit-button">
+            </div>
+            <div class="text-end text-muted">
+              <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="DEADLINE"
+                style="text-align: left!important;">
+                <p class="small mb-0 hide-on-edit"><i class="fas fa-info-circle me-2"></i>
+                  <%=tasks[i].deadline.toString().substring(0,15)%>
+                </p>
+                <input type="date" name="deadline" id="" value="<%=tasks[i].deadline%>" class="display-hidden show-on-edit" style="border:none; outline:none;">
+              </a>
+            </div>
+          </li>
+        </ul>
+      </form>
       <hr>
       <% } %>
         <% } %>
@@ -123,7 +132,7 @@
 </div>
 
 <div class="private-todo-container">
-  <form action="/users/add-task-to-privateList" method="post">
+  <form action="/users/add-task-to-privateList" method="post" class="new-task-form">
     <div id="desc">
       <label for="description">DESCRIPTION</label>
       <input class="decor" type="text" name="task" required placeholder="What do you need to do?">
@@ -137,13 +146,7 @@
     <div id="buttons">
       <button id="add" type="submit">
         <i class="fas fa-plus"></i>
-          ADD TASK
-      </button>
-      <button id="delete">
-        <a href="/delete_Tasks">
-          <i class="fas fa-trash-can"></i>
-            DELETE TASKS
-        </a>
+        ADD TASK
       </button>
     </div>
   </form>
