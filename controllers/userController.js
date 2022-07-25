@@ -42,8 +42,8 @@ module.exports.addTask_to_private_toDo = async (req, res) => {
             await task.save();
             if (user.pvtToDoList) {
                 let toDo = await ToDo.findById(user.pvtToDoList._id);
-                toDo.tasks.push(task);
-                toDo.save();
+                await toDo.tasks.push(task);
+                await toDo.save();
                 res.redirect('back');
             } else {
                 let toDo = await ToDo.create({ tasks: [task] });
@@ -63,8 +63,7 @@ module.exports.updatePrivateList = async (req, res) => {
         let taskId = req.params.id;
         let uId = req.user._id;
         let task = await Task.findByIdAndUpdate(taskId , {
-            task: req.body.task,
-            deadline: req.body.deadline
+            task: req.body.task
         });
         await task.save();
         return res.redirect('back');

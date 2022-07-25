@@ -13,3 +13,7 @@
     z-index: 1;
     background-color: white;
 }
+
+.edit-private-todo-list{
+    border: 1px black solid !important;
+}
