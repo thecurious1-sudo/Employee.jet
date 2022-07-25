@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="/css/privateToDo.css">
+<script src="/js/privateToDo.js"></script>
 <div class="showTasksContainer">
   <% if(tasks){ %>
     <% for(let i=0; i < tasks.length; i++) { %>
-      <form action="/users/update-private-todo-list/<%=tasks[i]._id%>" method="post">
+      <form action="/users/update-private-todo-list/<%=tasks[i]._id%>" method="post" class="form-task-<%=tasks[i]._id%>">
         <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
           <li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent hide-on-edit">
             <div class="form-check">
@@ -17,7 +18,7 @@
             <div class="d-flex flex-row justify-content-end mb-1">
               <a id="edit-<%=tasks[i]._id %>" href="#" class="text-info hide-on-edit" data-mdb-toggle="tooltip"
                 title="Edit task"><i class="fas fa-pencil-alt me-3"></i></a>
-              <a href="/users/delete-private-todo-list-task" class="text-danger hide-on-edit" data-mdb-toggle="tooltip"
+              <a href="/users/delete-private-todo-list-task/<%=tasks[i]._id%>" class="text-danger hide-on-edit" data-mdb-toggle="tooltip"
                 title="Delete task"><i class="fas fa-trash-alt"></i></a>
             </div>
             <div class="text-end text-muted">
@@ -30,8 +31,8 @@
             </div>
           </li>
         </ul>
+        <hr>
       </form>
-      <hr>
       <% } %>
         <% } %>
           <!-- 

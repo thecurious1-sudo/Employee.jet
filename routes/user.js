@@ -14,6 +14,8 @@ router.post(`/add-task-to-privateList` , passport.checkAuthentication , userCont
 // Update task in private todo list
 router.post('/update-private-todo-list/:id' , passport.checkAuthentication , userController.updatePrivateList);
 
+//Deleting Private todo list task
+router.get(`/delete-private-todo-list-task/:id` , passport.checkAuthentication , userController.deleteTask);
 
 
 module.exports=router;

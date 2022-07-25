@@ -39,19 +39,29 @@ module.exports.addTask_to_private_toDo = async (req, res) => {
                 task: req.body.task,
                 deadline: req.body.deadline
             });
+
             await task.save();
             if (user.pvtToDoList) {
                 let toDo = await ToDo.findById(user.pvtToDoList._id);
-                await toDo.tasks.push(task);
+                toDo.tasks.push(task);
                 await toDo.save();
-                res.redirect('back');
             } else {
                 let toDo = await ToDo.create({ tasks: [task] });
                 user.pvtToDoList = toDo;
                 user.save();
-                res.redirect('back');
+            }
+
+            if (req.xhr) {
+                return res.status(200).json({
+                    data: {
+                        task: task
+                    },
+                    message: 'Task Created'
+                });
             }
         }
+
+        return res.redirect('back');
     } catch (error) {
         console.log(error);
     }
@@ -61,14 +71,43 @@ module.exports.addTask_to_private_toDo = async (req, res) => {
 module.exports.updatePrivateList = async (req, res) => {
     try {
         let taskId = req.params.id;
-        let uId = req.user._id;
-        let task = await Task.findByIdAndUpdate(taskId , {
+        let task = await Task.findByIdAndUpdate(taskId, {
             task: req.body.task
         });
         await task.save();
         return res.redirect('back');
     } catch (error) {
-        console.log("Error in updating private todo list task", error);
+        console.log("Error in updating private todo list task: ", error);
+        return res.redirect('back');
+    }
+}
+
+// Deleting post from private todo list
+module.exports.deleteTask = async (req, res) => {
+    try {
+        let uid = req.user._id;
+        let user = await User.findById(uid);
+        let pvtToDoList_id = user.pvtToDoList;
+
+        let task_id = req.params.id;
+        await Task.findByIdAndDelete(task_id);
+
+        let todo = await ToDo.findByIdAndUpdate(pvtToDoList_id , {$pull: {tasks: task_id}});
+        await todo.save();
+
+        if(req.xhr){
+            return res.status(200).json({
+                data: {
+                    task_id : task_id
+                },
+                message: 'Task Deleted'
+            })
+        }
+        console.log("Task Deleted");
+        return res.redirect(`back`);
+
+    } catch (error) {
+        console.log("Error in deleting a task: ", error);
         return res.redirect('back');
     }
 }
