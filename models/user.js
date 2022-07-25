@@ -1,5 +1,5 @@
 const mongoose = require(`mongoose`);
-
+const ToDo = require(`../models/toDo`);
 // For uploading files
 const multer = require(`multer`);
 const path = require(`path`);
@@ -68,7 +68,12 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'ToDo',
         default: null
-    }
+    },
+    projectsToDoList: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'ToDo',
+        default: null
+    },
 } , {
     // Keep the created and updated time
     timestamps: true

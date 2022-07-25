@@ -1,0 +1,20 @@
+#main-card {
+    width: 70rem;
+    margin-left: 5rem;
+    margin-top: 2rem;
+}
+
+
+.card-title-container-title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-left:30rem;
+    margin-top:2rem;
+}
+
+.card-title-container-subtitle{
+    font-size: 1.5rem;
+    font-weight: bold;
+    width:100%;
+    padding:1.8rem;
+}

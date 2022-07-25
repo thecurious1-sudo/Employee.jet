@@ -1,20 +1,25 @@
 <link rel="stylesheet" href="/css/header.css">
 
+
 <header>
     <!-- Sidebar -->
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
         <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-4">
-                <a href="/" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+                <a href="/" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='dashboard')?'active':''%>" aria-current="true">
                     <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span></a>
-                <a href="#" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple">
+                <a href="/asdas" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='engage')?'active':''%>">
                     <i class="fas fa-chart-area fa-fw me-3"></i><span>Engage</span></a>
-                <a href="#" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple"><i
+                <a href="/asdasd" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='insights')?'active':''%>"><i
                         class="fas fa-lock fa-fw me-3"></i><span>Insights</span></a>
-                <a href="#" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple"><i
-                        class="fas fa-chart-line fa-fw me-3"></i><span>My Team</span></a>
-                <a href="#" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple">
+                <a href="/adas" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='myTeam')?'active':''%>">
+                    <i class="fa-solid fa-people-group"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;My Team</span></a>
+                <a href="/asdas" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='Admin')?'active':''%>">
                     <i class="fas fa-chart-pie fa-fw me-3"></i><span>Admin</span></a>
+                <a href="/projects/create" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='createProject')?'active':''  %>">
+                    <i class="fa-solid fa-folder-open"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;Create Project</span></a>
+                <a href="/projects/" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='viewProjects')?'active':''  %>">
+                    <i class="fa-solid fa-rectangle-list"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;View Projects</span></a>
             </div>
         </div>
     </nav>

@@ -16,6 +16,7 @@ module.exports.home = async (req , res)=>{
     return res.render('home', {
         layout: 'blank_layout',
         title: 'Employee.Jet | Home',
-        tasks: (user.pvtToDoList == null)?null:user.pvtToDoList.tasks
+        tasks: (user.pvtToDoList == null) ? null : user.pvtToDoList.tasks,
+        onPage: 'dashboard'
     });
 }

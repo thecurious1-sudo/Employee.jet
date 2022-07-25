@@ -1,3 +1,124 @@
+
+body {
+  background-color: #fbfbfb;
+  }
+  @media (min-width: 991.98px) {
+  main {
+  padding-left: 240px;
+  }
+  }
+  
+  /* Sidebar */
+  .sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 58px 0 0; /* Height of navbar */
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+  width: 240px;
+  z-index: 600;
+  }
+  
+  @media (max-width: 991.98px) {
+  .sidebar {
+  width: 100%;
+  }
+  }
+
+  *{
+      margin: 0;
+      padding: 0;
+  }
+  .sidebar .active {
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  }
+  
+  .sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+
+  .navbar{
+      padding: 0;
+  }
+
+  ul{
+      margin: 0;
+      padding: 0;
+  }
+
+  .container{
+      height: 100%;
+      width: 84.2%;
+      background-color: wheat;
+      position: absolute;
+      top: 70px;
+      overflow: hidden;
+      display: flex;
+      padding: 0px;
+  }
+
+  #sidebarMenu{
+      border: 2px solid grey;
+      border-bottom: none;
+  }
+  #main-navbar{
+      border: 2px solid grey;
+      border-left: none;
+      border-right: none;
+  }
+
+  .todo-list-container{
+      /* border-right: 1px solid black; */
+      width: 75%;
+  }
+  .todo-list-navbar{
+      display: flex;
+  }
+  .private-todo-button{
+      border-bottom: 1px solid black;
+      border-left:1px solid black ;
+      border-top: 1px solid black;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      margin: 0;
+  }
+  .project-todo-button{
+      border-bottom: 1px solid black;
+      border-right:1px solid black ;
+      border-top: 1px solid black;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      margin: 0;
+  }
+
+  .messages-container{
+      border-left: 1px solid black;
+      padding: 5px;
+      width: auto;
+  }
+
+  .private-todo-content{
+      position: absolute;
+      width: 75%;
+      height: 100%;
+  }
+
+  .project-todo-content
+  {
+      width: 75%;
+      height: 100%;
+      position: absolute;
+  }
+
 #layout-header {
     position: sticky;
     top: 0px;

@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+const User=require('../models/user');
+
 module.exports.users = [
     {
         name: "John Doe",
@@ -108,3 +111,29 @@ module.exports.todoDataPvt = [
         deadline: new Date(),
     }
 ]
+
+const getId = async(empId) => {
+    const res = await User.findOne({ empId: empId });
+    return res._id;
+  }
+module.exports.returnProjects = async () => {
+    return [
+        {
+            name: "Project 1",
+            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda expedita maxime mollitia eos neque possimus aspernatur reprehenderit vero harum suscipit nesciunt, blanditiis, similique, quia veniam consectetur! Velit culpa corrupti nihil!",
+            supervisor: await getId("1"),
+            team: [
+                await getId("2"),
+                await getId("3"),
+            ],
+        },
+        {
+            name: "Project 2",
+            description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda expedita maxime mollitia eos neque possimus aspernatur reprehenderit vero harum suscipit nesciunt, blanditiis, similique, quia veniam consectetur! Velit culpa corrupti nihil!",
+            supervisor: await getId("2"),
+            team: [
+                await getId("4"),
+                await getId("5"),],
+        }
+    ]
+}
