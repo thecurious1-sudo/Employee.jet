@@ -90,3 +90,22 @@ module.exports.deleteTask = async (req , res)=>{
         return res.redirect('back');
     }
 }
+
+// Updating vire project todo list
+module.exports.updateList = async (req, res) => {
+    try {
+        let taskId = req.params.id;
+        let task = await Task.findByIdAndUpdate(taskId, {
+            task: req.body.task
+        });
+        await task.save();
+        if(req.xhr){
+            return res.status(200).json({
+                message: "UPDATED"
+            });
+        }
+    } catch (error) {
+        console.log("Error in updating private todo list task: ", error);
+        return res.redirect('back');
+    }
+}

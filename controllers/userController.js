@@ -75,7 +75,6 @@ module.exports.updatePrivateList = async (req, res) => {
             task: req.body.task
         });
         await task.save();
-        return res.redirect('back');
     } catch (error) {
         console.log("Error in updating private todo list task: ", error);
         return res.redirect('back');
