@@ -36,7 +36,7 @@ for (let eBtn of editBtn) {
     });
 }
 
-// Adding new task via AJAX
+// Adding new task to private todo list via AJAX
 let createTask = function(){
     let newTaskForm = $(`.new-task-form`);
     newTaskForm.submit(function(e){

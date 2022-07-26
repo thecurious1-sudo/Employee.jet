@@ -116,6 +116,7 @@ const getId = async(empId) => {
     const res = await User.findOne({ empId: empId });
     return res._id;
   }
+  
 module.exports.returnProjects = async () => {
     return [
         {

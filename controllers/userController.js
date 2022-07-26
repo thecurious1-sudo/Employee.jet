@@ -103,9 +103,7 @@ module.exports.deleteTask = async (req, res) => {
                 message: 'Task Deleted'
             })
         }
-        console.log("Task Deleted");
         return res.redirect(`back`);
-
     } catch (error) {
         console.log("Error in deleting a task: ", error);
         return res.redirect('back');

@@ -17,3 +17,11 @@
 .edit-private-todo-list{
     border: 1px black solid !important;
 }
+
+.overflow-hiddenX-scrollHidden{
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.overflow-hiddenX-scrollHidden::-webkit-scrollbar{
+    display: none;
+}
