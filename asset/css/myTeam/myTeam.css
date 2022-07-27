@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.myTeam-card-container {
+    height: 100%;
+    width: 84.2%;
+    background-color: wheat;
+    position: absolute;
+    scroll-behavior: smooth;
+    top: 70px;
+    overflow: scroll;
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+
+}
+.myTeam-card-container::-webkit-scrollbar{
+    display: none;
+}
+
+
+.card{
+    margin: 24px 15.8px;
+    padding: 2px;
+    text-align: center;
+}
+
+.card-img-top{
+    width: 60%;
+    /* height: 50%; */ 
+    margin: auto;
+    border-radius: 50%;
+}
+
+.myTeam-card-info{
+    line-height: 8px;
+}

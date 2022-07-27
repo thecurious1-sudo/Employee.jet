@@ -13,8 +13,9 @@ for (let eBtn of viewEditBtn) {
         } else {
             //task save functionality
             //ajax request to update task
+
             let task_obj = {
-                task: task_value
+                task: task.value
             };
             
             $(task).toggleClass(`edit-private-todo-list`);

@@ -6,29 +6,31 @@
     </title>
     <link rel="stylesheet" href="/css/animations.css">
     <link rel="stylesheet" href="/css/blankLayout.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
     <!-- for jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/569528aa2d.js" crossorigin="anonymous"></script>
+
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet" />
+    <!-- MDB -->
     <%- style -%>
 </head>
 
 <body>
     <%if(locals.user){%>
-        <%- include('header'); %>
+        <%- include('header') %>
             <main id="layout-main">
                 <%- body %>
             </main>
-                <%}else{%>
-                    <main >
-                        <%- body %>
-                    </main>
-                    <%}%>
+            <%}else{%>
+                <main>
+                    <%- body %>
+                </main>
+                <%}%>
                     <%- script -%>
 </body>
 

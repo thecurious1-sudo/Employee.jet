@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/css/myTeam/myTeam.css">
+<link rel="stylesheet" href="/css/animations.css">
+<link rel="stylesheet" href="/css/blankLayout.css">
+<link rel="stylesheet" href="/css/layout.css">
+
+<div class="myTeam-card-Container">
+  <%for(let i=0; i< project.team.length ;i++) {%>
+    <div class="card" style="width: 18rem; height: 48%">
+      <img class="card-img-top" src="<%=project.team[i].avatar%>" alt="employee image">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%=project.team[i].name%>
+        </h5>
+        <div class="myTeam-card-info">
+          <p class="card-text">Employee ID: <%=project.team[i].empId%>
+          </p>
+          <p class="card-text">email: <%=project.team[i].email%>
+          </p>
+          <p class="card-text">Mobile No: <%=project.team[i].phnNo%>
+          </p>
+        </div>
+      </div>
+    </div>
+    <%}%>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>

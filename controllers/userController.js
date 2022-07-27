@@ -108,3 +108,10 @@ module.exports.deleteTask = async (req, res) => {
         return res.redirect('back');
     }
 }
+
+// Rendering user profile
+module.exports.profile = async (req , res)=>{
+    return res.render('profile' , {
+        layout: 'layout'
+    });
+}

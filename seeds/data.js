@@ -14,7 +14,7 @@ module.exports.users = [
         joinedOn: new Date(),   
         releasedOn: null,
         password: "123456",
-        avatar: "./uploads/users/avatars/avatar-1.jpeg",
+        avatar: "../uploads/users/avatars/avatar-1655900644429",
         projects: []
     },
     {
@@ -29,7 +29,7 @@ module.exports.users = [
         joinedOn: new Date(),
         releasedOn: null,
         password: "123456",
-        avatar: "./uploads/users/avatars/avatar-1.jpeg",
+        avatar: "../uploads/users/avatars/avatar-1655900644429",
         projects: []
     },
     {
@@ -44,7 +44,7 @@ module.exports.users = [
         joinedOn: new Date(),
         releasedOn: null,
         password: "123456",
-        avatar: "./uploads/users/avatars/avatar-1.jpeg",
+        avatar: "../uploads/users/avatars/avatar-1655900729893",
         projects: []
     },
     {
@@ -59,7 +59,7 @@ module.exports.users = [
         joinedOn: new Date(),
         releasedOn: null,
         password: "123456",
-        avatar: "./uploads/users/avatars/avatar-1.jpeg",
+        avatar: "../uploads/users/avatars/avatar-1655900644429",
         projects: []
     },
     {
@@ -74,7 +74,7 @@ module.exports.users = [
         joinedOn: new Date(),
         releasedOn: null,
         password: "123456",
-        avatar: "./uploads/users/avatars/avatar-1.jpeg",
+        avatar: "../uploads/users/avatars/avatar-1655900644429",
         projects: []
     },
     {
@@ -89,7 +89,7 @@ module.exports.users = [
         joinedOn: new Date(),
         releasedOn: null,
         password: "123456",
-        avatar: "./uploads/users/avatars/avatar-1.jpeg",
+        avatar: "../uploads/users/avatars/avatar-1655900644429",
         projects: []
     },
 ]
