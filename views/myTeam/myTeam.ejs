@@ -3,24 +3,56 @@
 <link rel="stylesheet" href="/css/blankLayout.css">
 <link rel="stylesheet" href="/css/layout.css">
 
-<div class="myTeam-card-Container">
-  <%for(let i=0; i< project.team.length ;i++) {%>
-    <div class="card" style="width: 18rem; height: 48%">
-      <img class="card-img-top" src="<%=project.team[i].avatar%>" alt="employee image">
-      <div class="card-body">
-        <h5 class="card-title">
-          <%=project.team[i].name%>
-        </h5>
-        <div class="myTeam-card-info">
-          <p class="card-text">Employee ID: <%=project.team[i].empId%>
-          </p>
-          <p class="card-text">email: <%=project.team[i].email%>
-          </p>
-          <p class="card-text">Mobile No: <%=project.team[i].phnNo%>
-          </p>
+<div class="myTeam-Container">
+  <div class="myTeam-card-Container">
+    <%if(project){%>
+    <%for(let i=0; i< project.team.length ;i++) {%>
+      <%if(project.team[i]._id.toString() != project.supervisor._id.toString() || project.supervisor._id.toString() != locals.user._id.toString()){%>
+        <div class="card" style="width: 18rem; height: 48%">
+          <img class="card-img-top" src="<%=project.team[i].avatar%>" alt="employee image">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%=project.team[i].name%>
+            </h5>
+            <div class="myTeam-card-info">
+              <p class="card-text">Employee ID: <%=project.team[i].empId%>
+              </p>
+              <p class="card-text">email: <%=project.team[i].email%>
+              </p>
+              <p class="card-text">Mobile No: <%=project.team[i].phnNo%>
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <%}%>
+        <%}%>
+          <%}%>
+          <%if(project.supervisor._id.toString() == locals.user._id.toString()){%>
+            <div class="card" style="width: 18rem; height: 48%">
+              <div class="card-body">
+                <h5 class="card-title">
+                  Add New Member
+                </h5>
+                <div class="myTeam-card-info mt-3">
+                  <i id="add-new-icon" class="fas fa-circle-plus"></i>
+                </div>
+                <div class="add-myTeam-member-container">
+                  <form action="/myTeam/addMember" method="post">
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                      <input type="text" id="form1Example1" name="empId" class="form-control" />
+                      <label class="form-label" for="form1Example1">Employee ID</label>
+                    </div>
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block">Add Member</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <%}%>
+            <%}else{%>
+              <h1>Oops!! it seems like you are not currently the part of any team</h1>
+              <%}%>
+  </div>
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
+<script src="/js/myTeam.js"></script>

@@ -16,7 +16,7 @@ module.exports.renderNewProject = (req, res) => {
 
 module.exports.showProjects = async (req, res) => {
     const userId = req.user._id;
-    const project = await Project.findOne({ supervisor: userId.toString() }).populate({ path: 'team', populate: { path: 'projectsToDoList', populate: { path: 'tasks' } } });
+    const project = await Project.findOne({ team: userId.toString() }).populate({ path: 'team', populate: { path: 'projectsToDoList', populate: { path: 'tasks' } } });
     return res.render('project/index', {
         layout: 'blank_layout',
         title: 'Projects',

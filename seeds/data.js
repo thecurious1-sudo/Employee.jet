@@ -124,8 +124,9 @@ module.exports.returnProjects = async () => {
             description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda expedita maxime mollitia eos neque possimus aspernatur reprehenderit vero harum suscipit nesciunt, blanditiis, similique, quia veniam consectetur! Velit culpa corrupti nihil!",
             supervisor: await getId("1"),
             team: [
-                await getId("2"),
+                await getId("6"),
                 await getId("3"),
+                await getId("1"),
             ],
         },
         {
@@ -134,7 +135,10 @@ module.exports.returnProjects = async () => {
             supervisor: await getId("2"),
             team: [
                 await getId("4"),
-                await getId("5"),],
+                await getId("3"),
+                await getId("5"),
+                await getId("2"),
+            ],
         }
     ]
 }
