@@ -43,14 +43,12 @@ let createViewProjectTask = function (classID) {
         let taskForm = $(this);
         taskForm.submit(function (e) {
             e.preventDefault();
-            console.log('Inside submit')
             let uid = ($(taskForm).attr(`action`)).split('/')[3];
             $.ajax({
                 type: 'POST',
                 url: $(taskForm).attr(`action`),
                 data: taskForm.serialize(),
                 success: function (data) {
-                    console.log("Inside createViewProjectTask");
                     let newTask = newViewProjectTaskDom(data.data);
                     $(`.view-project-todo-tasks-container-${uid}`).prepend(newTask);
                     deleteViewProjectTask($(`.text-danger`, newTask));

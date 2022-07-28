@@ -22,13 +22,15 @@
             </h3>
           </div>
           <div class="card-title-container-subtitle">
-            <h6 class="card-subtitle mb-2 text-muted">
+            <h6 class="card-subtitle mb-2 text-muted" style="font-weight: bolder;">
               <%=project.description%>
             </h6>
+            <hr>
           </div>
         </div>
         <div class="row">
           <% for(let i=0;i<project.team.length;i++) { %>
+            <%if(project.team[i]._id.toString() != project.supervisor.toString()){%>
             <div class="col-11 mt-3 ml-5" style="border-top: 5px solid black; margin-bottom: 2rem;">
               <div class="card">
                 <div class="card-body">
@@ -102,7 +104,7 @@
                   </div>
                 </div>
               </div>
-              
+              <%}%>
             <% } %>
         </div>
         <% } %>

@@ -7,7 +7,7 @@
   <div class="myTeam-card-Container">
     <%if(project){%>
     <%for(let i=0; i< project.team.length ;i++) {%>
-      <%if(project.team[i]._id.toString() != project.supervisor._id.toString() || project.supervisor._id.toString() != locals.user._id.toString()){%>
+      <!-- <%if(project.team[i]._id.toString() != project.supervisor._id.toString() || project.supervisor._id.toString() != locals.user._id.toString()){%> -->
         <div class="card" style="width: 18rem; height: 48%">
           <img class="card-img-top" src="<%=project.team[i].avatar%>" alt="employee image">
           <div class="card-body">
@@ -25,7 +25,7 @@
           </div>
         </div>
         <%}%>
-          <%}%>
+          <!-- <%}%> -->
           <%if(project.supervisor._id.toString() == locals.user._id.toString()){%>
             <div class="card" style="width: 18rem; height: 48%">
               <div class="card-body">

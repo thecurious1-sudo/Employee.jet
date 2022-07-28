@@ -1,0 +1,21 @@
+.createProject-container {
+    height: 100%;
+    width: 84.2%;
+    background-color: wheat;
+    position: absolute;
+    scroll-behavior: smooth;
+    top: 70px;
+    overflow: scroll;
+    padding: 30px 50px;
+}
+.createProject-container::-webkit-scrollbar {
+    display: none;
+}
+
+.createProject-form {
+    padding: 30px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid grey;
+    box-shadow: 5px 10px 8px #888888;
+}

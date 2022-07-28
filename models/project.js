@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const User = require('../models/user');
-const ToDo = require('../models/toDo');
 
 const projectSchema = new mongoose.Schema({
     name: {

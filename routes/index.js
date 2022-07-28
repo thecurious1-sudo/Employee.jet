@@ -7,5 +7,6 @@ router.get('/' , homeController.home);
 router.use('/users', require('./user'));
 router.use('/projects', require('./project'));
 router.use(`/myTeam` , require(`./myTeam`));
+router.use(`/createProject` , require(`./createProject`));
 
 module.exports = router;

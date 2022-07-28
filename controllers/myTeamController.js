@@ -1,5 +1,6 @@
 const Project = require(`../models/project`);
 const User = require(`../models/user`);
+const ToDo = require(`../models/toDo`);
 
 // Showing myTeam Page 
 module.exports.showCards = async (req , res)=>{
@@ -26,6 +27,11 @@ module.exports.addMember = async (req , res)=>{
             }
             project.team.push(user._id);
             await project.save();
+            const toDoList = new ToDo({
+              tasks: [],
+            });
+            const newToDoList = await toDoList.save();
+            await User.findByIdAndUpdate(user._id, { projectsToDoList: newToDoList._id });
         }
         return res.redirect('/myTeam');
     } catch (error) {

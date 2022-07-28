@@ -23,7 +23,6 @@ for (let eBtn of editBtn) {
         type: `POST`,
         data: task_obj,
         success: function (data) {
-          console.log(data);
         }
       });
       $(task).toggleClass(`edit-private-todo-list`);
