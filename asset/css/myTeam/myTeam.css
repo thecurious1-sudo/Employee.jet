@@ -18,6 +18,10 @@
     display: none;
 }
 
+.members-of-my-team{
+    display: flex;
+}
+
 .myTeam-card-container {
     height: 100%;
     width: 100%;

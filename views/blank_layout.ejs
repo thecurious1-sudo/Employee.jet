@@ -17,6 +17,9 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet">
     <!-- MDB -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
     <%- style -%>
 </head>
 
@@ -32,7 +35,28 @@
                 </main>
                 <%}%>
                     <%- script -%>
-<script src="/js/myTeam.js"></script>
+<script src="/js/myTeamMembers.js"></script>
+<script>
+    if (flash.success && flash.success.length > 0) {
+        new Noty({
+            theme: `relax`,
+            text: "<%=flash.success%>",
+            type: `success`,
+            layout: `topRight`,
+            timeout: 1500
+        }).show();
+     }
+
+    if (flash.error && flash.error.length > 0) {
+        new Noty({
+            theme: `relax`,
+            text: "<%=flash.error%>",
+            type: `error`,
+            layout: `topRight`,
+            timeout: 1500
+        }).show();
+    }
+</script>
 </body>
 
 </html>

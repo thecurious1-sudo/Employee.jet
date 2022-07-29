@@ -25,6 +25,7 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passportLocalStrategies');
 
+
 app.use(session({
     name: `Employee.Jet`,
     // TODO change the secret before deployment in production mode
@@ -49,6 +50,11 @@ app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
 
+// Using flash Messages
+const flash = require(`connect-flash`);
+app.use(flash());
+const customM = require(`./config/middleware`);
+app.use(customM.setFlash);
 
 app.use('/', require('./routes'));
 

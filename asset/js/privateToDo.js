@@ -23,6 +23,14 @@ for (let eBtn of editBtn) {
         type: `POST`,
         data: task_obj,
         success: function (data) {
+          new Noty({
+            theme: 'relax',
+            text: "Task updated in your private todo list",
+            type: 'success',
+            layout: 'topRight',
+            timeout: 1000
+
+          }).show();
         }
       });
       $(task).toggleClass(`edit-private-todo-list`);
@@ -46,6 +54,14 @@ let createTask = function () {
       url: `/users/add-task-to-privateList`,
       data: newTaskForm.serialize(),
       success: function (data) {
+        new Noty({
+          theme: 'relax',
+          text: "Task added to your private todo list",
+          type: 'success',
+          layout: 'topRight',
+          timeout: 1500
+
+        }).show();
         let newTask = newTaskDom(data.data.task);
         $(`.showTasksContainer`).prepend(newTask);
         deleteTask($(`.text-danger`, newTask));
@@ -98,6 +114,14 @@ let deleteTask = function (deleteID) {
       url: $(deleteID).prop('href'),   //Gets the link in href
       success: function (data) {
         $(`.form-task-${data.data.task_id}`).remove();
+        new Noty({
+          theme: 'relax',
+          text: "Task removed from your private todo list",
+          type: 'success',
+          layout: 'topRight',
+          timeout: 1000
+
+        }).show();
       }, error: function (err) {
         console.log(err.resposneText);
       }

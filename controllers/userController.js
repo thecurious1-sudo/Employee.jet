@@ -60,8 +60,6 @@ module.exports.addTask_to_private_toDo = async (req, res) => {
                 });
             }
         }
-
-        return res.redirect('back');
     } catch (error) {
         console.log(error);
     }
@@ -102,7 +100,6 @@ module.exports.deleteTask = async (req, res) => {
                 message: 'Task Deleted'
             })
         }
-        return res.redirect(`back`);
     } catch (error) {
         console.log("Error in deleting a task: ", error);
         return res.redirect('back');

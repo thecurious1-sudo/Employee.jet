@@ -22,19 +22,36 @@ module.exports.addMember = async (req , res)=>{
         if(user){
             let project = await Project.findOne({ supervisor: req.user._id.toString() });
             let alreadyMember = await Project.findOne({ team: user._id.toString()  , supervisor: req.user._id.toString()});
-            if(alreadyMember){
+            if(alreadyMember || user.projects.length > 0){
                 return res.redirect('/myTeam');
             }
             project.team.push(user._id);
             await project.save();
+            user.projects.push(project);
+            await user.save();
             const toDoList = new ToDo({
               tasks: [],
             });
             const newToDoList = await toDoList.save();
             await User.findByIdAndUpdate(user._id, { projectsToDoList: newToDoList._id });
+            await user.save();
         }
-        return res.redirect('/myTeam');
+
+        if(req.xhr){
+            return res.status(200).json({
+                data: {
+                    user: user
+                },
+                message: 'Member Added'
+            })
+        }
     } catch (error) {
         console.log("Error in adding myTeam Member: ",error);
+        return res.redirect('/myTeam');
     }
+}
+
+// Removing a memmber from the team
+module.exports.removeMember = async (req , res)=>{
+
 }

@@ -5,19 +5,10 @@ const ToDo = require(`../models/toDo`);
 const Project = require('../models/project');
 
 
-
-module.exports.renderNewProject = (req, res) => {
-    return res.render('project/create', {
-        layout: 'blank_layout',
-        title: 'Create new project',
-        onPage: 'createProject',
-    });
-}
-
 module.exports.showProjects = async (req, res) => {
     const userId = req.user._id;
     const project = await Project.findOne({ team: userId.toString() }).populate({ path: 'team', populate: { path: 'projectsToDoList', populate: { path: 'tasks' } } });
-    return res.render('project/index', {
+    return res.render('project/viewProjectToDo', {
         layout: 'blank_layout',
         title: 'Projects',
         onPage: 'viewProjects',
@@ -57,7 +48,6 @@ module.exports.addTask = async (req, res) => {
                 });
             }
         }
-        // return res.redirect('back');
     } catch (error) {
         console.log("Error in adding task to view project todo list: ",error);
         // return res.redirect('/');
@@ -84,7 +74,6 @@ module.exports.deleteTask = async (req , res)=>{
                 message: 'Task Deleted'
             })
         }
-        return res.redirect(`back`);
     } catch (error) {
         console.log("Error in deleting a task: ", error);
         return res.redirect('back');

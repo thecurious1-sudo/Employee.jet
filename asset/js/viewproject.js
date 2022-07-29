@@ -1,68 +1,75 @@
 // Update task on view projects todo list
 let viewEditBtn = document.getElementsByClassName(`view-project-edit`);
 for (let eBtn of viewEditBtn) {
-    $(eBtn).on('click', () => {
-        let id = eBtn.id.split(`-`)[1];
-        let taskId="task-"+id;
-        let task = document.getElementById(taskId);
-        $(task).toggleClass(`edit-private-todo-list`);
-        let temp = eBtn.getElementsByClassName(`fas fa-pencil-alt me-3`)[0];
-        if (temp) {
-            //I've clicked edit button
-            $(task).prop('disabled', false);
-        } else {
-            //task save functionality
-            //ajax request to update task
+  $(eBtn).on('click', () => {
+    let id = eBtn.id.split(`-`)[1];
+    let taskId = "task-" + id;
+    let task = document.getElementById(taskId);
+    $(task).toggleClass(`edit-private-todo-list`);
+    let temp = eBtn.getElementsByClassName(`fas fa-pencil-alt me-3`)[0];
+    if (temp) {
+      //I've clicked edit button
+      $(task).prop('disabled', false);
+    } else {
+      //task save functionality
+      //ajax request to update task
 
-            let task_obj = {
-                task: task.value
-            };
-            
-            $(task).toggleClass(`edit-private-todo-list`);
-            $.ajax({
-                url: `/projects/update-view-project-todo-list/${id}`,
-                type: `POST`,
-                data: task_obj,
-                success: function (data) {
-                }
-            });
-            $(task).toggleClass(`edit-private-todo-list`);
-            $(task).prop('disabled', true);
+      let task_obj = {
+        task: task.value
+      };
+
+      $(task).toggleClass(`edit-private-todo-list`);
+      $.ajax({
+        url: `/projects/update-view-project-todo-list/${id}`,
+        type: `POST`,
+        data: task_obj,
+        success: function (data) {
         }
-        let i=eBtn.getElementsByClassName(`fas fa-pencil-alt me-3`)[0] || eBtn.getElementsByClassName(`fas fa-floppy-disk me-3`)[0];
-        $(i).toggleClass('fas fa-pencil-alt me-3')
-        $(i).toggleClass('fas fa-floppy-disk me-3')
-    });
+      });
+      $(task).toggleClass(`edit-private-todo-list`);
+      $(task).prop('disabled', true);
+    }
+    let i = eBtn.getElementsByClassName(`fas fa-pencil-alt me-3`)[0] || eBtn.getElementsByClassName(`fas fa-floppy-disk me-3`)[0];
+    $(i).toggleClass('fas fa-pencil-alt me-3')
+    $(i).toggleClass('fas fa-floppy-disk me-3')
+  });
 }
 
 
 
 // Adding new task to view project todo list via AJAX
 let createViewProjectTask = function (classID) {
-    $(`.new-view-project-task-form`).each(function () {
-        let taskForm = $(this);
-        taskForm.submit(function (e) {
-            e.preventDefault();
-            let uid = ($(taskForm).attr(`action`)).split('/')[3];
-            $.ajax({
-                type: 'POST',
-                url: $(taskForm).attr(`action`),
-                data: taskForm.serialize(),
-                success: function (data) {
-                    let newTask = newViewProjectTaskDom(data.data);
-                    $(`.view-project-todo-tasks-container-${uid}`).prepend(newTask);
-                    deleteViewProjectTask($(`.text-danger`, newTask));
-                }, error: function (err) {
-                    console.log(err.resposneText);
-                }
-            });
-        });
-        // } 
+  $(`.new-view-project-task-form`).each(function () {
+    let taskForm = $(this);
+    taskForm.submit(function (e) {
+      e.preventDefault();
+      let uid = ($(taskForm).attr(`action`)).split('/')[3];
+      $.ajax({
+        type: 'POST',
+        url: $(taskForm).attr(`action`),
+        data: taskForm.serialize(),
+        success: function (data) {
+          let newTask = newViewProjectTaskDom(data.data);
+          $(`.view-project-todo-tasks-container-${uid}`).prepend(newTask);
+          deleteViewProjectTask($(`.text-danger`, newTask));
+          new Noty({
+            theme: 'relax',
+            text: "Task added ",
+            type: 'success',
+            layout: 'topRight',
+            timeout: 1000
+          }).show();
+        }, error: function (err) {
+          console.log(err.resposneText);
+        }
+      });
     });
+    // } 
+  });
 }
 
 let newViewProjectTaskDom = (data) => {
-    return $(`<form action="/projects/update-view-project-todo-list${data.task._id}" method="post" class="view-project-task-form-${data.task._id}">
+  return $(`<form action="/projects/update-view-project-todo-list${data.task._id}" method="post" class="view-project-task-form-${data.task._id}">
     <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
       <li
         class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent hide-on-edit">
@@ -102,27 +109,34 @@ let newViewProjectTaskDom = (data) => {
 }
 
 let deleteViewProjectTask = (deleteID) => {
-    $(deleteID).click(function (e) {
-        e.preventDefault();
+  $(deleteID).click(function (e) {
+    e.preventDefault();
 
-        $.ajax({
-            type: `get`,
-            url: $(deleteID).prop('href'),   //Gets the link in href
-            success: function (data) {
-                $(`.view-project-task-form-${data.data.task_id}`).remove();
-            }, error: function (err) {
-                console.log(err.resposneText);
-            }
-        });
+    $.ajax({
+      type: `get`,
+      url: $(deleteID).prop('href'),   //Gets the link in href
+      success: function (data) {
+        $(`.view-project-task-form-${data.data.task_id}`).remove();
+        new Noty({
+          theme: 'relax',
+          text: "Task deleted",
+          type: 'success',
+          layout: 'topRight',
+          timeout: 1000
+        }).show();
+      }, error: function (err) {
+        console.log(err.resposneText);
+      }
     });
+  });
 }
 
 let convertTasksToAjax = function () {
-        $(`.view-project-todo-tasks-container > form`).each(function () {
-            let self = $(this);
-            let deleteButton = $('.text-danger', self);
-            deleteViewProjectTask(deleteButton);
-        });
+  $(`.view-project-todo-tasks-container > form`).each(function () {
+    let self = $(this);
+    let deleteButton = $('.text-danger', self);
+    deleteViewProjectTask(deleteButton);
+  });
 }
 
 createViewProjectTask();
