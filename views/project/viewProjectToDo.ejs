@@ -44,6 +44,7 @@
                         <form action="/projects/update-view-project-todo-list/<%=task._id%>" method="post"
                           class="view-project-task-form-<%=task._id%>">
                           <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
+                            <%if(locals.user._id.toString() == project.team[i]._id.toString()){%>
                             <li
                               class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent hide-on-edit">
                               <div class="form-check">
@@ -51,6 +52,7 @@
                                   id="flexCheckChecked1" aria-label="..." />
                               </div>
                             </li>
+                            <%}%>
                             <li
                               class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
                               style="width: 65%; overflow-wrap: anywhere;">

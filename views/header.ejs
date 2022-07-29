@@ -13,10 +13,12 @@
                         class="fas fa-lock fa-fw me-3"></i><span>Insights</span></a>
                 <a href="/myTeam" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='myTeam')?'active':''%>">
                     <i class="fa-solid fa-people-group"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;My Team</span></a>
+                    <%if(locals.user.projects.length == 0){%>
                 <a href="/createProject/" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='createProject')?'active':''  %>">
                     <i class="fa-solid fa-folder-open"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;Create Project</span></a>
+                    <%}%>
                 <a href="/projects/" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='viewProjects')?'active':''  %>">
-                    <i class="fa-solid fa-rectangle-list"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;View Projects</span></a>
+                    <i class="fa-solid fa-rectangle-list"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;Project ToDo</span></a>
             </div>
         </div>
     </nav>

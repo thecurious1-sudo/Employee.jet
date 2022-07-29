@@ -41,6 +41,8 @@ let addMemberToMyteam = function () {
 let newMemberDom = function(user) {
     return $(`
     <div class="card" style="width: 18rem; height: 48%">
+    <a href="/myTeam/remove/?pid=${user.projects[0]._id}&uid=${user._id}">
+              <i class="fas fa-trash-can"></i></a>
     <img class="card-img-top" src="${user.avatar}" alt="employee image">
     <div class="card-body">
       <h5 class="card-title">

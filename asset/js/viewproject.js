@@ -72,13 +72,6 @@ let newViewProjectTaskDom = (data) => {
   return $(`<form action="/projects/update-view-project-todo-list${data.task._id}" method="post" class="view-project-task-form-${data.task._id}">
     <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
       <li
-        class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent hide-on-edit">
-        <div class="form-check">
-          <input class="form-check-input me-0 hide-on-edit" type="checkbox" value=""
-            id="flexCheckChecked1" aria-label="..." />
-        </div>
-      </li>
-      <li
         class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
         style="width: 65%; overflow-wrap: anywhere;">
         <textarea id="task-${data.task._id}" type="text"
