@@ -30,82 +30,92 @@
         </div>
         <div class="row">
           <% for(let i=0;i<project.team.length;i++) { %>
-            <%if(project.team[i]._id.toString() != project.supervisor.toString()){%>
-            <div class="col-11 mt-3 ml-5" style="border-top: 5px solid black; margin-bottom: 2rem;">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <%= project.team[i].name %>
-                  </h5>
-                  <hr>
-                  <div class="view-project-todo-tasks-container-<%=project.team[i]._id%> view-project-todo-tasks-container">
-                    <% for(let task of project.team[i].projectsToDoList.tasks) { %>
-                      <form action="/projects/update-view-project-todo-list/<%=task._id%>" method="post"
-                        class="view-project-task-form-<%=task._id%>">
-                        <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
-                          <li
-                            class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent hide-on-edit">
-                            <div class="form-check">
-                              <input class="form-check-input me-0 hide-on-edit" type="checkbox" value=""
-                                id="flexCheckChecked1" aria-label="..." />
-                            </div>
-                          </li>
-                          <li
-                            class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
-                            style="width: 65%; overflow-wrap: anywhere;">
-                            <textarea id="task-<%=task._id%>" type="text"
-                              class="lead fw-normal mb-0 hide-on-edit private-todo-textarea"
-                              disabled><%= task.task %></textarea>
-                          </li>
-                          <li class="list-group-item ps-3 pe-10 py-1.5 rounded-0 border-0 bg-transparent"
-                            style="width: 19%;">
-                            <div class="d-flex flex-row justify-content-end mb-1">
-                              <a id="edit-<%=task._id %>" href="#" class="text-info view-project-edit hide-on-edit"
-                                data-mdb-toggle="tooltip" title="Edit task"><i class="fas fa-pencil-alt me-3"></i></a>
-                              <a href="/projects/delete-view-project-list-task/?tid=<%=task._id%>&uid=<%=project.team[i]._id%>"
-                                class="text-danger hide-on-edit" data-mdb-toggle="tooltip" title="Delete task"><i
-                                  class="fas fa-trash-alt"></i></a>
-                            </div>
-                            <div class="text-end text-muted">
-                              <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="DEADLINE"
-                                style="text-align: left!important;">
-                                <p class="small mb-0 hide-on-edit"><i class="fas fa-info-circle me-2"></i>
-                                  <%=task.deadline.toString().substring(0,15)%>
-                                </p>
-                              </a>
-                            </div>
-                          </li>
-                        </ul>
-                        <hr>
-                      </form>
-                      <% } %>
+            <%if(project.team[i]._id.toString() !=project.supervisor.toString()){%>
+              <div class="col-11 mt-3 ml-5" style="border-top: 5px solid black; margin-bottom: 2rem;">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <%= project.team[i].name %>
+                    </h5>
+                    <hr>
+                    <div
+                      class="view-project-todo-tasks-container-<%=project.team[i]._id%> view-project-todo-tasks-container">
+                      <% for(let task of project.team[i].projectsToDoList.tasks) { %>
+                        <form action="/projects/update-view-project-todo-list/<%=task._id%>" method="post"
+                          class="view-project-task-form-<%=task._id%>">
+                          <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
+                            <li
+                              class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent hide-on-edit">
+                              <div class="form-check">
+                                <input class="form-check-input me-0 hide-on-edit" type="checkbox" value=""
+                                  id="flexCheckChecked1" aria-label="..." />
+                              </div>
+                            </li>
+                            <li
+                              class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
+                              style="width: 65%; overflow-wrap: anywhere;">
+                              <textarea id="task-<%=task._id%>" type="text"
+                                class="lead fw-normal mb-0 hide-on-edit private-todo-textarea"
+                                disabled><%= task.task %></textarea>
+                            </li>
+                            <%if(project.supervisor.toString==project.team[i]._id.toString() ||
+                              project.supervisor.toString()==locals.user._id.toString()){%>
+                              <li class="list-group-item ps-3 pe-10 py-1.5 rounded-0 border-0 bg-transparent"
+                                style="width: 19%;">
+                                <div class="d-flex flex-row justify-content-end mb-1">
+                                  <a id="edit-<%=task._id %>" href="#" class="text-info view-project-edit hide-on-edit"
+                                    data-mdb-toggle="tooltip" title="Edit task"><i
+                                      class="fas fa-pencil-alt me-3"></i></a>
+                                  <a href="/projects/delete-view-project-list-task/?tid=<%=task._id%>&uid=<%=project.team[i]._id%>"
+                                    class="text-danger hide-on-edit" data-mdb-toggle="tooltip" title="Delete task"><i
+                                      class="fas fa-trash-alt"></i></a>
+                                </div>
+                                <%}%>
+                                  <div class="text-end text-muted">
+                                    <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="DEADLINE"
+                                      style="text-align: left!important;">
+                                      <p class="small mb-0 hide-on-edit"><i class="fas fa-info-circle me-2"></i>
+                                        <%=task.deadline.toString().substring(0,15)%>
+                                      </p>
+                                    </a>
+                                  </div>
+                              </li>
+                          </ul>
+                          <hr>
+                        </form>
+                        <% } %>
                     </div>
-                    <div class="view-project-todo-container">
-                      <form action="/projects/add-task-to-view-project-todo-list/<%=project.team[i]._id%>" method="post"
-                        class="new-view-project-task-form new-view-project-task-form-<%=project.team[i]._id%>">
-                        <div id="desc">
-                          <label for="description">DESCRIPTION</label>
-                          <input class="decor" type="text" name="task" required placeholder="What do you want to add?">
-                        </div>
-      
-                        <div id="date">
-                          <label for="date">DEADLINE</label>
-                          <input class="decor" type="date" name="deadline" id="dueDate" required>
-                        </div>
-      
-                        <div id="buttons">
-                          <button id="add" type="submit">
-                            <i class="fas fa-plus"></i>
-                            ADD TASK
-                          </button>
-                        </div>
-                      </form>
-                    </div>
+                    <%if(project.supervisor.toString==project.team[i]._id.toString() ||
+                      project.supervisor.toString()==locals.user._id.toString()){%>
+                      <div class="view-project-todo-container">
+                        <form action="/projects/add-task-to-view-project-todo-list/<%=project.team[i]._id%>"
+                          method="post"
+                          class="new-view-project-task-form new-view-project-task-form-<%=project.team[i]._id%>">
+                          <div id="desc">
+                            <label for="description">DESCRIPTION</label>
+                            <input class="decor" type="text" name="task" required
+                              placeholder="What do you want to add?">
+                          </div>
+
+                          <div id="date">
+                            <label for="date">DEADLINE</label>
+                            <input class="decor" type="date" name="deadline" id="dueDate" required>
+                          </div>
+
+                          <div id="buttons">
+                            <button id="add" type="submit">
+                              <i class="fas fa-plus"></i>
+                              ADD TASK
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                      <%}%>
                   </div>
                 </div>
               </div>
               <%}%>
-            <% } %>
+                <% } %>
         </div>
         <% } %>
       </div>
