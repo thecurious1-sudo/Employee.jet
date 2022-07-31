@@ -1,0 +1,53 @@
+.container{
+    width: 84.2%!important;
+    display: block !important;
+    overflow-y: scroll!important;
+}
+.container::-webkit-scrollbar{
+    display: none;
+}
+.card{
+    margin:1rem;
+    margin-bottom: 0rem;
+    height:fit-content;
+}
+
+.list-group{
+    margin-bottom: 0rem;
+}
+
+/* #responses{
+    display: none;
+} */
+
+.responses{
+    display: none!important;
+}
+
+.responses-after-click{
+    display: block!important;
+}
+
+.card:last-child{
+    margin-bottom: 5rem;
+}
+
+
+.show-form{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 84%;
+    margin-left: 5rem;
+    height: fit-content;
+    margin-top:2rem;
+}
+
+.btn{
+    margin-top: 1rem;
+    margin-left: 41%;
+    height: 3rem;
+    width: 10rem;
+    font-size: 18;
+    text-transform: none;
+}

@@ -11,6 +11,10 @@
                     <i class="fas fa-chart-area fa-fw me-3"></i><span>Engage</span></a>
                 <a href="/asdasd" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='insights')?'active':''%>"><i
                         class="fas fa-lock fa-fw me-3"></i><span>Insights</span></a>
+                        <a href="/feedback"
+                        class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='feedback')?'active':''%>">
+                        <i class="fas fa-comments fa-fw me-3"></i><span>Feedback</span></a>
+                   
                 <a href="/myTeam" class="dashboard-sidebar-items list-group-item list-group-item-action py-2 ripple <%= (onPage==='myTeam')?'active':''%>">
                     <i class="fa-solid fa-people-group"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;My Team</span></a>
                     <%if(locals.user.projects.length == 0){%>

@@ -1,0 +1,103 @@
+<script src="/js/feedback/show.js"></script>
+<link href="/css/feedback/show.css" rel="stylesheet" />
+<link href="/css/feedback/starability-all.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="/css/animations.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
+
+<div class="container">
+    <% if(feedbackData.length>0) {%>
+    <form class="show-form mb-4" action="/feedback/<%=feedback._id%>?_method=PATCH" method="POST">
+    <% for(let i=0;i<feedback.questions.length;i++)
+    {%>
+    <div class="card">
+        <div class="card-header">
+            Question-<%=i+1%>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><%=feedback.questions[i].question%></h5>
+                <% if(feedback.questions[i].type === 'rating'){%>
+            <p class="card-text">Average:4.5/5</p>
+            <%} else if(feedback.questions[i].type=== 'binary'){%>
+                <p class="card-text">90% voted YES</p>
+                <%}%>
+        </div>
+        <div class="card-footer text-muted">
+              <% if(feedbackData[i]) {%>
+                <% if(feedback.questions[i].type === 'rating'){%>                  
+                      <fieldset class="starability-basic" id="star-<%=feedbackData[i]._id%>">
+                        
+                        <p class="">Your Response:</p>
+                        <input type="radio" id="no-rate-<%=feedbackData[i]._id%>" class="input-no-rate" name="rating-<%=feedbackData[i]._id%>" value="0" checked aria-label="No rating." />
+                        <input type="radio" id="second-rate1-<%=feedbackData[i]._id%>" name="rating-<%=feedbackData[i]._id%>" value="1" <%=feedbackData[i].response==1?'checked':'' %>/>
+                        <label for="second-rate1-<%=feedbackData[i]._id%>" title="Terrible">1 star</label>
+                        <input type="radio" id="second-rate2-<%=feedbackData[i]._id%>" name="rating-<%=feedbackData[i]._id%>" value="2" <%=feedbackData[i].response==2?'checked':'' %>/>
+                        <label for="second-rate2-<%=feedbackData[i]._id%>" title="Not good">2 stars</label>
+                        <input type="radio" id="second-rate3-<%=feedbackData[i]._id%>" name="rating-<%=feedbackData[i]._id%>" value="3" <%=feedbackData[i].response==3?'checked':'' %>/>
+                        <label for="second-rate3-<%=feedbackData[i]._id%>" title="Average">3 stars</label>
+                        <input type="radio" id="second-rate4-<%=feedbackData[i]._id%>" name="rating-<%=feedbackData[i]._id%>" value="4" <%=feedbackData[i].response==4?'checked':'' %>/>
+                        <label for="second-rate4-<%=feedbackData[i]._id%>" title="Very good">4 stars</label>
+                        <input type="radio" id="second-rate5-<%=feedbackData[i]._id%>" name="rating-<%=feedbackData[i]._id%>" value="5" <%=feedbackData[i].response==5?'checked':'' %>/>
+                        <label for="second-rate5-<%=feedbackData[i]._id%>" title="Amazing">5 stars</label>
+                      </fieldset>
+                    <%} else if(feedback.questions[i].type=== 'binary'){%>
+                        <select id="" name="rating-<%=feedbackData[i]._id%>" class="form-select" aria-label="Default select example">
+                        <option >Type </option>
+                        <option value="yes" <%=feedbackData[i].response=='yes'?'selected':'' %>>YES</option>
+                        <option value="no" <%=feedbackData[i].response=='no'?'selected':'' %>>NO</option>
+                    </select>
+                        <%}%>
+                <% }  %>
+
+          </div>
+    </div>
+    <% } %>
+    <button class="btn btn-primary">Edit</button>
+    </form>
+<% } else {%>
+    <form class="show-form mb-4" action="/feedback/<%=feedback._id%>" method="POST">
+        <% for(let i=0;i<feedback.questions.length;i++){%>
+        <div class="card">
+            <div class="card-header">
+                Question-<%=i+1%>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%=feedback.questions[i].question%></h5>
+                    <% if(feedback.questions[i].type === 'rating'){%>
+                <p class="card-text">Average:4.5/5</p>
+                <%} else if(feedback.questions[i].type=== 'binary'){%>
+                    <p class="card-text">90% voted YES</p>
+                    <%}%>
+            </div>
+            <div class="card-footer text-muted">
+                  
+                    <% if(feedback.questions[i].type === 'rating'){%>                  
+                          <fieldset class="starability-basic" id="star-<%=i%>">
+                            <p class="">Your Response:</p>
+                            <input type="radio" id="no-rate-<%=feedback.questions[i]._id%>" class="input-no-rate" name="rating-<%=feedback.questions[i]._id%>" value="0" checked aria-label="No rating." />
+                            <input type="radio" id="second-rate1-<%=feedback.questions[i]._id%>" name="rating-<%=feedback.questions[i]._id%>" value="1" <%=feedbackData[i]==1?'checked':'' %>/>
+                            <label for="second-rate1-<%=feedback.questions[i]._id%>" title="Terrible">1 star</label>
+                            <input type="radio" id="second-rate2-<%=feedback.questions[i]._id%>" name="rating-<%=feedback.questions[i]._id%>" value="2" <%=feedbackData[i]==2?'checked':'' %>/>
+                            <label for="second-rate2-<%=feedback.questions[i]._id%>" title="Not good">2 stars</label>
+                            <input type="radio" id="second-rate3-<%=feedback.questions[i]._id%>" name="rating-<%=feedback.questions[i]._id%>" value="3" <%=feedbackData[i]==3?'checked':'' %>/>
+                            <label for="second-rate3-<%=feedback.questions[i]._id%>" title="Average">3 stars</label>
+                            <input type="radio" id="second-rate4-<%=feedback.questions[i]._id%>" name="rating-<%=feedback.questions[i]._id%>" value="4" <%=feedbackData[i]==4?'checked':'' %>/>
+                            <label for="second-rate4-<%=feedback.questions[i]._id%>" title="Very good">4 stars</label>
+                            <input type="radio" id="second-rate5-<%=feedback.questions[i]._id%>" name="rating-<%=feedback.questions[i]._id%>" value="5" <%=feedbackData[i]==5?'checked':'' %>/>
+                            <label for="second-rate5-<%=feedback.questions[i]._id%>" title="Amazing">5 stars</label>
+                          </fieldset>
+                        <%} else if(feedback.questions[i].type=== 'binary'){%>
+                                <select id="" name="rating-<%=feedback.questions[i]._id%>" class="form-select" aria-label="Default select example">
+                            <option >Type </option>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                                </select>
+                            <%}%>
+    
+              </div>
+        </div>
+        <% } %>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+
+    <% }%>
+</div>

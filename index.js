@@ -2,9 +2,10 @@ const express = require("express");
 const port = 3000;
 const app = express();
 const db=require("./config/mongoose");
-const path=require("path");
+const path = require("path");
+const methodOverride = require("method-override");
 
-
+app.use(methodOverride("_method"));
 app.use(express.urlencoded());
 app.use(express.json());
 app.set(`view engine` , `ejs`);
