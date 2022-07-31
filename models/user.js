@@ -31,7 +31,8 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     supervisor: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
     },
     address: {
         type: String,

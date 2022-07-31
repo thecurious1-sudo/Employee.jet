@@ -17,10 +17,11 @@ module.exports.createProject = async (req, res) => {
         let user_id = req.user._id;
         const user = await User.findById(user_id);
         if (user) {
+            user.supervisor = user_id;
             let project = await Project.create({
                 name: req.body.name,
                 description: req.body.description,
-                supervisor: user_id,
+                supervisor: req.user._id,
                 team: [user_id],
                 deadline: req.body.deadline
             });
