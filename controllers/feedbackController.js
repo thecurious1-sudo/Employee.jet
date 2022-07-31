@@ -88,5 +88,5 @@ module.exports.createFeedbackResponse = async (req, res) => {
     }
     const result2= await Feedback.findByIdAndUpdate(req.params.id, { $push: { isFilledBy: req.user } }, { new: true });
     console.log(result2);
-    //res.redirect('/feedback/' + req.params.id);
+    res.redirect('/feedback/' + req.params.id);
 }
