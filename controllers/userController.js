@@ -43,12 +43,14 @@ module.exports.addTask_to_private_toDo = async (req, res) => {
             await task.save();
             if (user.pvtToDoList) {
                 let toDo = await ToDo.findById(user.pvtToDoList._id);
-                toDo.tasks.push(task);
-                await toDo.save();
-            } else {
-                let toDo = await ToDo.create({ tasks: [task] });
-                user.pvtToDoList = toDo;
-                user.save();
+                if (toDo) {
+                    toDo.tasks.push(task);
+                    await toDo.save();
+                } else {
+                    let toDo = await ToDo.create({ tasks: [task] });;
+                    user.pvtToDoList = toDo;
+                    user.save()
+                }
             }
 
             if (req.xhr) {
@@ -89,13 +91,13 @@ module.exports.deleteTask = async (req, res) => {
         let task_id = req.params.id;
         await Task.findByIdAndDelete(task_id);
 
-        let todo = await ToDo.findByIdAndUpdate(pvtToDoList_id , {$pull: {tasks: task_id}});
+        let todo = await ToDo.findByIdAndUpdate(pvtToDoList_id, { $pull: { tasks: task_id } });
         await todo.save();
 
-        if(req.xhr){
+        if (req.xhr) {
             return res.status(200).json({
                 data: {
-                    task_id : task_id
+                    task_id: task_id
                 },
                 message: 'Task Deleted'
             })
@@ -107,8 +109,8 @@ module.exports.deleteTask = async (req, res) => {
 }
 
 // Rendering user profile
-module.exports.profile = async (req , res)=>{
-    return res.render('profile' , {
+module.exports.profile = async (req, res) => {
+    return res.render('profile', {
         layout: 'layout'
     });
 }
