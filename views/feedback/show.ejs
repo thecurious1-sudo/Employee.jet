@@ -15,11 +15,6 @@
         </div>
         <div class="card-body">
             <h5 class="card-title"><%=feedback.questions[i].question%></h5>
-                <% if(feedback.questions[i].type === 'rating'){%>
-            <p class="card-text">Average:4.5/5</p>
-            <%} else if(feedback.questions[i].type=== 'binary'){%>
-                <p class="card-text">90% voted YES</p>
-                <%}%>
         </div>
         <div class="card-footer text-muted">
               <% if(feedbackData[i]) {%>
