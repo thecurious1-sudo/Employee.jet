@@ -1,0 +1,11 @@
+.messages-container {
+    border-left: 1px solid black;
+    padding: 0px;
+    width: 15rem;
+    height: 100%;
+    background-color: white;
+    /* margin-right:0rem; */
+    position: fixed;
+    right: 0;
+    top: 4.1rem;
+}
