@@ -114,3 +114,24 @@ module.exports.profile = async (req, res) => {
         layout: 'layout'
     });
 }
+
+
+
+module.exports.updateTaskStatus = async (req, res) => {
+    try {
+        let taskId = req.params.id;
+        let task = await Task.findByIdAndUpdate(taskId, {
+            completedStatus: req.body.completedStatus
+        },{new:true});
+        if (req.xhr) {
+            return res.status(200).json({
+                data: {
+                },
+                message: 'Task Status Updated Successfully'
+            })
+        }
+    } catch (error) {
+        console.log("Error in updating task status: ", error);
+        return res.redirect('back');
+    }
+}

@@ -21,7 +21,9 @@ router.post('/update-private-todo-list/:id' , passport.checkAuthentication , use
 router.get(`/delete-private-todo-list-task/:id` , passport.checkAuthentication , userController.deleteTask);
 
 //Showing User profile
-router.get(`/profile` , passport.checkAuthentication , userController.profile);
+router.get(`/profile`, passport.checkAuthentication, userController.profile);
+
+router.post(`/update-task-status/:id` , passport.checkAuthentication , userController.updateTaskStatus);
 
 
 module.exports=router;

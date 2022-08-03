@@ -1,0 +1,149 @@
+/* Naming grid areas */
+#desc {
+    grid-area: desc;
+}
+
+#date {
+    grid-area: date;
+}
+
+#buttons {
+    grid-area: buttons;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Container CSS */
+.private-todo-container {
+    background-color: white;
+    width: 63.16%;
+    position: fixed;
+    bottom: 0;
+    height: 20%;
+    border-top: 2px solid black;
+    border-bottom: 7px solid black;
+}
+
+/* Styling input section */
+.new-task-form {
+    height: 25%;
+    display: grid;
+    width: auto;
+    grid-template-areas: 'desc desc desc desc date'
+        'buttons buttons buttons buttons buttons';
+}
+
+.new-task-form>div {
+    padding: 5px;
+    border: 1px solid rgb(210, 208, 208);
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bolder;
+}
+
+.decor {
+    border: none;
+    outline-width: 0;
+    font-size: 1.1rem;
+}
+
+/* Changing input placeholder color */
+.new-task-form>input {
+    height: 54px;
+    margin-bottom: -15px;
+}
+
+.new-task-form>input::placeholder {
+    color: rgb(177, 177, 177);
+}
+
+#duedate:hover {
+    cursor: pointer;
+}
+
+
+/* Styling buttons container and buttons */
+.new-task-form>#buttons {
+    /* background-color: aqua; */
+    /* height: 15%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 0.3rem;
+    margin: 0.3rem 1rem;
+    width: 20%;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+#add {
+    background-color: rgb(40, 31, 31);
+    color: white;
+}
+
+.new-task-form>#buttons button:hover {
+    box-shadow: 0px 1px 5px black;
+    cursor: pointer;
+}
+
+.showTasksContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.showTasksContainer {
+    margin-left: 25px;
+    margin-top: 10px;
+    height: 63%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.form-check-input {
+    margin-left: 10px;
+}
+
+hr {
+    margin: 0.3rem 0;
+}
+
+
+/* Edit Task CSS */
+.edit-task-ul {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    background-color: white;
+}
+
+.private-todo-textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.private-todo-textarea {
+    border: none;
+    width: 70%;
+    height: auto;
+    overflow-wrap: anywhere;
+    background-color: white;
+    font-weight: 700;
+    resize: none;
+}
+
+.form-check {
+    margin-bottom: 1.9rem;
+}
+
+.toggle-border {
+    border: none;
+    outline:none;
+}

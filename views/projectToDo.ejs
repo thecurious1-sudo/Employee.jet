@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/css/projectToDo.css">
+<script src="/js/projectToDo.js"></script>
+<div class="showTasksContainer">
+  <% if(tasks2){ %>
+    <% for(let i=0; i < tasks2.length; i++) { %>
+        <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
+          <li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent hide-on-edit">
+            <div class="form-check">
+              <input class="form-check-input me-0 hide-on-edit project-task-complete" type="checkbox" value="" id="check-<%=tasks2[i]._id%>" aria-label="..." <%= (tasks2[i].completedStatus)?'checked':'' %>/>
+            </div>
+          </li>
+          <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
+            style="width: 65%; overflow-wrap: anywhere;">
+            <textarea id="task-<%=tasks2[i]._id%>" type="text" class="lead fw-normal mb-0 hide-on-edit private-todo-textarea" disabled ><%= tasks2[i].task %></textarea>
+          </li>
+          <li class="list-group-item ps-3 pe-10 py-1.5 rounded-0 border-0 bg-transparent" style="width: 19%;">
+       
+            <div class="text-end text-muted">
+              <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="DEADLINE"
+                style="text-align: left!important;">
+                <p class="small mb-0 hide-on-edit"><i class="fas fa-info-circle me-2"></i>
+                  <%=tasks2[i].deadline.toString().substring(0,15)%>
+                </p>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <hr>
+      <% } %>
+        <% } %>
+    </div>
