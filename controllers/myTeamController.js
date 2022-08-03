@@ -69,7 +69,7 @@ module.exports.remove = async (req, res) => {
         await ToDo.findByIdAndDelete(projectToDoList_id);
 
         await User.findByIdAndUpdate(uid, { $pull: { projects: pid } });
-        user.projectsToDoList = null;
+        await User.findByIdAndUpdate(uid,{ projectsToDoList: null });
 
         await Project.findByIdAndUpdate(pid, { $pull: { team: uid } });
 
