@@ -15,8 +15,7 @@ module.exports.viewAllFeedbacks = async (req , res)=>{
     }
     //populate the feedback page
     // const admin = await Admin.findById(req.user._id);
-    const feedbacks = await Feedback.find({}).populate({ path: 'questions', populate: { path: 'responses', } });
-    // console.log(feedbacks);
+    const feedbacks = await User.findById(req.user._id).populate(`feedback`);
     return res.render('feedback/viewAll', {
         layout: 'blank_layout',
         title: 'View Feedbacks',
@@ -84,7 +83,6 @@ module.exports.createFeedbackResponse = async (req, res) => {
         const responseTemp = new Response({ response, byEmpObjId: req.user });
         const newResponse = await responseTemp.save();
         const result = await Question.findByIdAndUpdate(question_id, { $push: { responses: newResponse._id } }, { new: true });
-        console.log(result);
     }
     const result2= await Feedback.findByIdAndUpdate(req.params.id, { $push: { isFilledBy: req.user } }, { new: true });
     console.log(result2);

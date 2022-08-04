@@ -75,6 +75,10 @@ const userSchema = new mongoose.Schema({
         ref: 'ToDo',
         default: null
     },
+    feedback: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Feedback',
+    }]
 } , {
     // Keep the created and updated time
     timestamps: true

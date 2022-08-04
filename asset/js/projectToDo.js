@@ -18,7 +18,6 @@ $(document).ready(function () {
               timeout: 1000
   
             }).show();
-            console.log("YIPPEEEE!");
           },
           error: function (data)
           {

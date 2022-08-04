@@ -30,7 +30,11 @@ const projectSchema = new mongoose.Schema({
     finishedAt: {
         type: Date,
         default: null
-    }
+    },
+    feedback: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Feedback',
+    }]
 }, {   
     timestamps: true
 

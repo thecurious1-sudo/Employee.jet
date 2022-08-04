@@ -3,53 +3,37 @@
 <link href="/css/feedback/viewAll.css" rel="stylesheet" />
 
 <div class="container">
+  <%if(feedbacks.length > 0){%>
     <% for(let feedback of feedbacks) { %>
-          <div class="card" style="width: 18rem; height:20rem;">
+      <div class="card" style="width: 18rem; height:20rem;">
 
         <div class="card-body" style="padding-bottom: 0;">
-          <h5 class="card-title"><%=feedback.name%></h5>
-          <p class="card-text"><%=feedback.description%></p>
+          <h5 class="card-title">
+            <%=feedback.name%>
+          </h5>
+          <p class="card-text">
+            <%=feedback.description%>
+          </p>
           <% let temp=1; %>
-          <% for(let id of feedback.isFilledBy) {%>
-            <% if(id.toString()===locals.user._id.toString()){%>
-              <% temp=0; %>
-            <%}%>
-          <%}%>
-          <a href="/feedback/<%=feedback._id%>" class="btn btn-primary mt-3"><%= (temp==1)?'Fill Feedback':'Edit Feedback' %></a>
-          
+            <% for(let id of feedback.isFilledBy) {%>
+              <% if(id.toString()===locals.user._id.toString()){%>
+                <% temp=0; %>
+                  <%}%>
+                    <%}%>
+                      <a href="/feedback/<%=feedback._id%>" class="btn btn-primary mt-3">
+                        <%= (temp==1)?'Fill Feedback':'Edit Feedback' %>
+                      </a>
+
         </div>
         <div class="card-footer text-muted">
-            <p class="card-text mt-2"><small class="text-muted" >Created : <%=feedback.createdAt.toString().substring(0,16)%></small></p>
-            
-          </div>
-      </div>
-        <% } %>
-  
-      <!-- <div class="card" style="width: 18rem; height:18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <p class="card-text mt-2"><small class="text-muted">Created :
+              <%=feedback.createdAt.toString().substring(0,16)%>
+            </small></p>
+
         </div>
       </div>
-      <div class="card" style="width: 18rem; height:18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem; height:18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div> -->
-      
+      <% } %>
+        <%}else{%>
+          <h1>No feedbacks found</h1>
+          <%}%>
 </div>
-
-
