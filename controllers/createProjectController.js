@@ -14,6 +14,9 @@ module.exports.renderNewProject = (req, res) => {
 // Creating new project
 module.exports.createProject = async (req, res) => {
     try {
+        //console.log(req.body.skills);
+        //return res.redirect('/');
+        const tags = req.body.skills.split(' ');
         let user_id = req.user._id;
         const user = await User.findById(user_id);
         if (user) {
@@ -23,7 +26,8 @@ module.exports.createProject = async (req, res) => {
                 description: req.body.description,
                 supervisor: req.user._id,
                 team: [user_id],
-                deadline: req.body.deadline
+                deadline: req.body.deadline,
+                tags: tags,
             });
             const toDoList = new ToDo({
                 tasks: [],
