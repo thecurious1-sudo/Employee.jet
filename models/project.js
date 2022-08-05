@@ -34,7 +34,12 @@ const projectSchema = new mongoose.Schema({
     feedback: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Feedback',
-    }]
+    }],
+    tags: [
+        {
+            type: String
+        }   
+    ],
 }, {   
     timestamps: true
 
