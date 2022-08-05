@@ -63,7 +63,7 @@ let createTask = function () {
 
         }).show();
         let newTask = newTaskDom(data.data.task);
-        $(`.showTasksContainer`).prepend(newTask);
+        $(`#showTaskPrivate`).prepend(newTask);
         deleteTask($(`.text-danger`, newTask));
       }, error: function (err) {
         console.log(err.resposneText);
@@ -95,7 +95,7 @@ let newTaskDom = function (task) {
           <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="DEADLINE"
             style="text-align: left!important;">
             <p class="small mb-0 hide-on-edit"><i class="fas fa-info-circle me-2"></i>
-              ${task.deadline.toString().substring(0, 15)}
+              ${(new Date(task.deadline).toString()).substring(0, 15)}
             </p>
           </a>
         </div>

@@ -11,8 +11,7 @@
           <%if(project.team[i]._id.toString() != project.supervisor._id.toString() || project.supervisor._id.toString() != locals.user._id.toString()){%>
             <div class="card" style="width: 18rem; height: 48%">
               <%if(project.supervisor._id.toString() == locals.user._id.toString()){%>
-              <a href="/myTeam/remove/?pid=<%=project._id%>&uid=<%=project.team[i]._id%>">
-              <i class="fas fa-trash-can"></i></a>
+              
               <%}%>
               <img class="card-img-top" src="<%=project.team[i].avatar%>" alt="employee image">
               <div class="card-body">
@@ -27,6 +26,10 @@
                   <p class="card-text">Mobile No: <%=project.team[i].phnNo%>
                   </p>
                 </div>
+              </div>
+              <div class="card-footer text-muted">
+              <a href="/myTeam/remove/?pid=<%=project._id%>&uid=<%=project.team[i]._id%>">
+                <button class="btn btn-danger">Remove</button></a>
               </div>
             </div>
             <%}%>

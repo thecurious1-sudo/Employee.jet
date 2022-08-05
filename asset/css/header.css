@@ -76,50 +76,18 @@ ul {
     border: 2px solid grey;
     border-left: none;
     border-right: none;
+    max-height: 4.38rem;
 }
 
-.todo-list-container {
-    /* border-right: 1px solid black; */
-    width: 75%;
-}
 
 .todo-list-navbar {
     display: flex;
 }
 
-.private-todo-button {
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    border-top: 1px solid black;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    margin: 0;
-}
-
-.project-todo-button {
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    margin: 0;
-}
 
 
 
-.private-todo-content {
-    position: absolute;
-    width: 75%;
-    height: 100%;
-}
 
-.project-todo-content {
-    width: 75%;
-    height: 100%;
-    position: absolute;
-}
 
 #layout-header {
     position: sticky;

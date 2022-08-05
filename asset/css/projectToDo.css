@@ -16,16 +16,6 @@
     padding: 0;
 }
 
-/* Container CSS */
-.private-todo-container {
-    background-color: white;
-    width: 63.16%;
-    position: fixed;
-    bottom: 0;
-    height: 20%;
-    border-top: 2px solid black;
-    border-bottom: 7px solid black;
-}
 
 /* Styling input section */
 .new-task-form {

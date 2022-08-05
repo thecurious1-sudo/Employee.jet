@@ -7,6 +7,7 @@ module.exports.home = async (req , res)=>{
         return res.render('landingPage' , {
             layout: 'blank_layout',
             title: 'Employee.Jet',
+            user:req.user
         });
     }
 

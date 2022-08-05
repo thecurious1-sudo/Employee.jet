@@ -34,8 +34,7 @@ module.exports.addTask_to_private_toDo = async (req, res) => {
                 task: req.body.task,
                 deadline: req.body.deadline
             });
-
-            await task.save();
+            let newTask=await Task.findById(task._id);
             if (user.pvtToDoList) {
                 let toDo = await ToDo.findById(user.pvtToDoList._id);
                 if (toDo) {
@@ -47,11 +46,11 @@ module.exports.addTask_to_private_toDo = async (req, res) => {
                     user.save()
                 }
             }
-
             if (req.xhr) {
                 return res.status(200).json({
                     data: {
-                        task: task
+                        task: newTask
+                        
                     },
                     message: 'Task Created'
                 });

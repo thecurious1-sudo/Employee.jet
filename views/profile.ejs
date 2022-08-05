@@ -1,3 +1,5 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/profile.css">
 <section style="background-color: #eee;">
     <div class="container py-5">
       <div class="row">
@@ -19,33 +21,25 @@
                 class="rounded-circle img-fluid profile-image" style="width: 150px;">
               <h5 class="my-3"><%=locals.user.name%></h5>
               <p class="text-muted mb-1"></p>
-              <p class="text-muted mb-4"><%=locals.user.address%></p>
+              <p class="text-muted mb-4"><%=locals.user.designation%></p>
             </div>
           </div>
           <div class="card mb-4 mb-lg-0">
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush rounded-3">
-                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                  <i class="fas fa-globe fa-lg text-warning"></i>
-                  <p class="mb-0">https://mdbootstrap.com</p>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                  <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-                  <p class="mb-0">mdbootstrap</p>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                  <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-                  <p class="mb-0">@mdbootstrap</p>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                  <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                  <p class="mb-0">mdbootstrap</p>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                  <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                  <p class="mb-0">mdbootstrap</p>
-                </li>
-              </ul>
+            <div class="card-body p-4">
+              <div class="task-tags mt-4">
+                <h5 class="mb-4">Skills</h5>
+                <div class="bootstrap-tagsinput mt-3">
+                            <span class="tag label label-tag">HTML<span data-role="remove"></span></span>
+                            <span class="tag label label-tag">CSS<span data-role="remove"></span></span>
+                            <br>
+                            <span class="tag label label-tag">Bootstrap<span data-role="remove"></span></span>
+                            <span class="tag label label-tag">ExpressJs<span data-role="remove"></span></span>
+                            <span class="tag label label-tag">NodeJS<span data-role="remove"></span></span>
+                         
+                
+                </div>
+
+            </div>
             </div>
           </div>
         </div>

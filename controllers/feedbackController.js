@@ -15,7 +15,7 @@ module.exports.viewAllFeedbacks = async (req , res)=>{
     }
     //populate the feedback page
     // const admin = await Admin.findById(req.user._id);
-    const feedbacks = await User.findById(req.user._id).populate(`feedback`);
+    const feedbacks = await Feedback.find({});
     return res.render('feedback/viewAll', {
         layout: 'blank_layout',
         title: 'View Feedbacks',
