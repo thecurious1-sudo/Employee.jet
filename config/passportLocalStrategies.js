@@ -14,15 +14,16 @@ passport.use(new localStrategy({
         User.findOne({empId: empId} , (err , user)=>{
             if(err){
                 // console.log(`Error in finding user from passport
+                req.flash(`error` , `Server Error`);
                 return done(err);
             }
 
             if(!user || user.password != password)
             {
                 // console.log(`Invalid Username/Password`);
+                req.flash(`error` , `Inavlid Username/Password`);
                 return done(null , false);
             }
-            
             return done(null , user);
         });
     }
@@ -40,6 +41,7 @@ passport.deserializeUser(function(id , done){
             console.log(`Error in deserializing the user`);
             return done(err);
         }
+        // req.flash(`success` , `Logged Out Successfully`);
         return done(null , user);
     });
 });

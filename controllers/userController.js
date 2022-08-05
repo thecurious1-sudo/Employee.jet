@@ -6,13 +6,7 @@ const moment = require('moment');
 
 module.exports.login = async (req, res) => {
     const { empId, password } = req.body;
-    const user = await User.findOne({ empId: empId });
-    if (!user) {
-        return res.status(400).send("User not found");
-    }
-    if (user.password !== password) {
-        return res.status(400).send("Incorrect password");
-    }
+    req.flash('success', 'You have been logged in');
     return res.redirect('back');
 }
 
@@ -25,6 +19,7 @@ module.exports.logout = async (req, res) => {
         if (err) {
             console.log(`Error in logging out`);
         }
+        req.flash('success', 'You have been logged out');
         return res.redirect(`/`);
     });
 }

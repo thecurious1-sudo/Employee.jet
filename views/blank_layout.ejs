@@ -20,6 +20,8 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/569528aa2d.js" crossorigin="anonymous"></script>
     <%- style -%>
 </head>
 
@@ -37,7 +39,7 @@
                     <%- script -%>
 <script src="/js/myTeamMembers.js"></script>
 <script>
- if (flash.success && flash.success.length > 0) {
+ <%if (flash.success && flash.success.length > 0) {%>
         new Noty({
             theme: `relax`,
             text: "<%=flash.success%>",
@@ -45,9 +47,9 @@
             layout: `topRight`,
             timeout: 1500
         }).show();
-     }
+        <% }%>
 
-    if (flash.error && flash.error.length > 0) {
+   <% if (flash.error && flash.error.length > 0) {%>
         new Noty({
             theme: `relax`,
             text: "<%=flash.error%>",
@@ -55,7 +57,7 @@
             layout: `topRight`,
             timeout: 1500
         }).show();
-    }
+   <%}%>
 </script>
 </body>
 

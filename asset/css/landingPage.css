@@ -146,6 +146,10 @@ a {
     background-color: #1A237E;
 }
 
+.login-footer>*{
+    width: auto!important;
+}
+
 @media screen and (max-width: 991px) {
     .logo {
         margin-left: 0px;
