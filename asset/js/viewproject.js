@@ -50,7 +50,7 @@ let createViewProjectTask = function (classID) {
         data: taskForm.serialize(),
         success: function (data) {
           let newTask = newViewProjectTaskDom(data.data);
-          $(`.view-project-todo-tasks-container-${uid}`).prepend(newTask);
+          $(`.view-project-todo-tasks-container-${uid}`).append(newTask);
           deleteViewProjectTask($(`.text-danger`, newTask));
           new Noty({
             theme: 'relax',
@@ -71,6 +71,13 @@ let createViewProjectTask = function (classID) {
 let newViewProjectTaskDom = (data) => {
   return $(`<form action="/projects/update-view-project-todo-list${data.task._id}" method="post" class="view-project-task-form-${data.task._id}">
     <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
+    <li
+                              class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent hide-on-edit">
+                              <div class="form-check">
+                                <input class="form-check-input me-0 hide-on-edit" type="checkbox" value=""
+                                  id="flexCheckChecked1" aria-label="..." disabled/>
+                              </div>
+                            </li>
       <li
         class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
         style="width: 65%; overflow-wrap: anywhere;">
@@ -91,7 +98,7 @@ let newViewProjectTaskDom = (data) => {
           <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="DEADLINE"
             style="text-align: left!important;">
             <p class="small mb-0 hide-on-edit"><i class="fas fa-info-circle me-2"></i>
-              ${data.task.deadline.toString().substring(0, 15)}
+              ${new Date(data.task.deadline).toString().substring(0, 15)}
             </p>
           </a>
         </div>

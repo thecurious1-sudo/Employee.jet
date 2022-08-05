@@ -72,7 +72,7 @@ module.exports.editFeedback = async (req, res) => {
         //console.log(result);
     }
     
-    res.redirect('/feedback/' + req.params.id);
+    res.redirect('/feedback/');
 } 
 
 module.exports.createFeedbackResponse = async (req, res) => {

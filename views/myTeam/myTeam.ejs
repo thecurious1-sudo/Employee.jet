@@ -10,8 +10,8 @@
         <%for(let i=0; i< project.team.length ;i++) {%>
           <%if(project.team[i]._id.toString() != project.supervisor._id.toString() || project.supervisor._id.toString() != locals.user._id.toString()){%>
             <div class="card" style="width: 18rem; height: 48%">
-              <%if(project.supervisor._id.toString() == locals.user._id.toString()){%>
-              
+              <%if(project.supervisor._id.toString() == project.team[i]._id.toString()){%>
+                <span id="supervisorBadge" class="badge badge-danger">Supervisor</span>
               <%}%>
               <img class="card-img-top" src="<%=project.team[i].avatar%>" alt="employee image">
               <div class="card-body">
@@ -27,10 +27,12 @@
                   </p>
                 </div>
               </div>
+              <% if(project.supervisor._id.toString() == locals.user._id.toString()){ %>
               <div class="card-footer text-muted">
               <a href="/myTeam/remove/?pid=<%=project._id%>&uid=<%=project.team[i]._id%>">
                 <button class="btn btn-danger">Remove</button></a>
               </div>
+              <%}%>
             </div>
             <%}%>
               <%}%>
