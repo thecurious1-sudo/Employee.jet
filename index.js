@@ -45,7 +45,7 @@ app.use(
     name: `Employee.Jet`,
     // TODO change the secret before deployment in production mode
     secret: `blahblah`,
-    saveUninitialized: false, //It means that data will not be saved in cookies until signin is there
+    saveUninitialized: true, //It means that data will not be saved in cookies until signin is there
     resave: false,
     cookie: {
       maxAge: 1000 * 6000 * 1000,

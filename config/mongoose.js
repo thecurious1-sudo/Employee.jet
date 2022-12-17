@@ -6,7 +6,7 @@ const dbUrl = process.env.DB_URL;
 const connectDB = (URL) => {
   return (
     mongoose
-      .connect(dbUrl)
+      .connect(URL)
       // .connect(dbUrl)
       .then(() => {
         console.log("Connection established!");
@@ -15,11 +15,6 @@ const connectDB = (URL) => {
         console.log(err);
       })
   );
-  const db = mongoose.connection;
-  db.on("error", console.error.bind(console, "connection error:"));
-  db.once("open", () => {
-    console.log("Database connected");
-  });
 };
 
 module.exports = connectDB;
