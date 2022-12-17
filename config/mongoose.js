@@ -1,7 +1,9 @@
+require("dotenv").config({ path: require("find-config")(".env") });
 const mongoose = require("mongoose");
-const dbUrl = 'mongodb://localhost:27017/EmployeeJet'
+// const dbUrl = "mongodb://0.0.0.0:27017/EmployeeJet";
+const dbUrl = process.env.DB_URL;
 mongoose
-.connect(dbUrl)
+  .connect(dbUrl)
   // .connect(dbUrl)
   .then(() => {
     console.log("Connection established!");
