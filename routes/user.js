@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 const userController = require("../controllers/userController");
-
+var signature = require("cookie-signature");
 router.get("/login", (req, res) => {
   res.redirect("/");
 });
@@ -10,8 +10,11 @@ router.post(
   passport.authenticate(`local`, {
     failureRedirect: `/`,
   }),
-  (req, res, next) =>
-    res.cookie("connect.sid", "s:" + signature.sign(req.sessionID, "blahblah")),
+  (req, res, next) => {
+    // console.log("executed");
+    res.cookie("connect.sid", "s:" + signature.sign(req.sessionID, "blahblah"));
+    next();
+  },
   userController.login
 );
 
